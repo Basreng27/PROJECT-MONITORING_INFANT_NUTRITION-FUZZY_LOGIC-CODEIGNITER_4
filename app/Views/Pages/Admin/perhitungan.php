@@ -4,7 +4,7 @@
 
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>Orang Tua</h2>
+        <h2>Perhitungan</h2>
     </header>
 
     <!-- start: page -->
@@ -15,16 +15,20 @@
                 <a href="#" class="fa fa-times"></a>
             </div>
 
-            <h2 class="panel-title">Data Orang Tua</h2>
+            <h2 class="panel-title">Data Perhitungan</h2>
         </header>
         <div class="panel-body">
-            <button id="addToTable" class="btn btn-primary">Add <i class="fa fa-plus"></i></button>
             <table class="table table-bordered table-striped mb-none" id="datatable-tabletools" data-swf-path="assets/vendor/jquery-datatables/extras/TableTools/swf/copy_csv_xls_pdf.swf">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
+                        <th>Orang Tua</th>
+                        <th>Umur</th>
+                        <th>Berat Badan</th>
+                        <th>Tinggi Badan</th>
+                        <th>Hasil</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -33,9 +37,13 @@
                         <td>1</td>
                         <td>Ucup</td>
                         <td>Laki Laki</td>
+                        <td>Udin</td>
+                        <td>2 Bulan</td>
+                        <td>72 Cm</td>
+                        <td>23 Kg</td>
+                        <td>OK</td>
                         <td>
-                            <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                            <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                            <a href="#" class="modal-with-form on-default edit-row"><i class="fa fa-gear"></i></a>
                         </td>
                     </tr>
                 </tbody>

@@ -20,9 +20,15 @@ $routes->get('/', 'Login::index');
 
 // admin
 $routes->get('/home', 'Admin::index');
+// master pasien
 $routes->get('/orang-tua', 'Admin::orangTua');
 $routes->get('/balita', 'Admin::balita');
-$routes->get('/status-gizi', 'Admin::statusGizi');
+// master data
+$routes->get('/umur', 'Admin::umur');
+$routes->get('/berat-badan', 'Admin::beratBadan');
+$routes->get('/tinggi-badan', 'Admin::tinggiBadan');
+// perhitungan
+$routes->get('/perhitungan', 'Admin::perhitungan');
 
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';

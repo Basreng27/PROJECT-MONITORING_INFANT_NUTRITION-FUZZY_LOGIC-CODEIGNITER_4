@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="assets/vendor/morris/morris.css" />
     <link rel="stylesheet" href="assets/vendor/select2/select2.css" />
     <link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+    <link rel="stylesheet" href="assets/vendor/pnotify/pnotify.custom.css" />
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="assets/stylesheets/theme.css" />
@@ -40,7 +41,6 @@
 
     <!-- Head Libs -->
     <script src="assets/vendor/modernizr/modernizr.js"></script>
-
 </head>
 
 <body>
@@ -110,7 +110,7 @@
                                 <li class="nav-parent">
                                     <a>
                                         <i class="fa fa-copy" aria-hidden="true"></i>
-                                        <span>Master Data</span>
+                                        <span>Master Data Pasien</span>
                                     </a>
                                     <ul class="nav nav-children">
                                         <li>
@@ -126,10 +126,34 @@
                                     </ul>
                                 </li>
 
+                                <li class="nav-parent">
+                                    <a>
+                                        <i class="fa fa-copy" aria-hidden="true"></i>
+                                        <span>Master Data</span>
+                                    </a>
+                                    <ul class="nav nav-children">
+                                        <li>
+                                            <a href="/umur">
+                                                Umur
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/berat-badan">
+                                                Berat Badan
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tinggi-badan">
+                                                Tinggi Badan
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
                                 <li class="nav">
-                                    <a href="/status-gizi">
-                                        <i class="fa fa-tasks" aria-hidden="true"></i>
-                                        <span>Status Gizi</span>
+                                    <a href="/perhitungan">
+                                        <i class="fa fa-reddit" aria-hidden="true"></i>
+                                        <span>Perhitungan</span>
                                     </a>
                                 </li>
                             </ul>
@@ -198,11 +222,15 @@
     <!-- Theme Initialization Files -->
     <script src="assets/javascripts/theme.init.js"></script>
 
+    <!-- Specific Page Vendor -->
+    <script src="assets/vendor/pnotify/pnotify.custom.js"></script>
+
     <!-- Examples -->
     <script src="assets/javascripts/dashboard/examples.dashboard.js"></script>
     <script src="assets/javascripts/tables/examples.datatables.default.js"></script>
     <script src="assets/javascripts/tables/examples.datatables.row.with.details.js"></script>
     <script src="assets/javascripts/tables/examples.datatables.tabletools.js"></script>
+    <script src="assets/javascripts/ui-elements/examples.modals.js"></script>
 </body>
 
 </html>

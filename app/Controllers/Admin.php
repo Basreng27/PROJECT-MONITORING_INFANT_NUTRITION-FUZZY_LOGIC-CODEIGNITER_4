@@ -11,16 +11,31 @@ class Admin extends BaseController
 
     public function orangTua()
     {
-        return view('Pages/Admin/orang_tua');
+        return view('Pages/Admin/Master-Data-Pasien/orang_tua');
     }
 
     public function balita()
     {
-        return view('Pages/Admin/balita');
+        return view('Pages/Admin/Master-Data-Pasien/balita');
     }
 
-    public function statusGizi()
+    public function umur()
     {
-        return view('Pages/Admin/status_gizi');
+        return view('Pages/Admin/Master-Data/umur');
+    }
+
+    public function beratBadan()
+    {
+        return view('Pages/Admin/Master-Data/berat_badan');
+    }
+
+    public function tinggiBadan()
+    {
+        return view('Pages/Admin/Master-Data/tinggi_badan');
+    }
+
+    public function perhitungan()
+    {
+        return view('Pages/Admin/perhitungan');
     }
 }
