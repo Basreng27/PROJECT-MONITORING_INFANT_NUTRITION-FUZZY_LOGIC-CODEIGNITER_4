@@ -7,6 +7,20 @@
         <h2>Orang Tua</h2>
     </header>
 
+    <?php if (session()->getFlashdata('gagal')) { ?>
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            Data Orag Tua <strong>gagal</strong> ditambahkan
+        </div>
+    <?php } ?>
+
+    <?php if (session()->getFlashdata('berhasil')) { ?>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            Data Orag Tua <strong>berhasil</strong> ditambahkan
+        </div>
+    <?php } ?>
+
     <!-- start: page -->
     <section class="panel">
         <header class="panel-heading">
@@ -29,15 +43,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Ucup</td>
-                        <td>Laki Laki</td>
-                        <td>
-                            <a href="#modalFormEdit" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
-                            <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                        </td>
-                    </tr>
+                    <?php
+                    $no = 1;
+                    foreach ($data_ortu as $ortu) : ?>
+                        <tr>
+                            <td><?= $no++; ?></td>
+                            <td><?= $ortu['nama_ortu']; ?></td>
+                            <td><?= $ortu['jk_ortu']; ?></td>
+                            <td>
+                                <a href="#modalFormEdit<?= $ortu['id_ortu']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                ||
+                                <!-- <a href="#modalDanger<?= $ortu['id_ortu']; ?>" class="on-default remove-row"><i class="fa fa-trash-o"></i></a> -->
+                                <a href="#modalDanger<?= $ortu['id_ortu']; ?>" class="modal-with-form on-default"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>
@@ -50,71 +70,110 @@
         <header class="panel-heading">
             <h2 class="panel-title">Tambah Data Orang Tua</h2>
         </header>
-        <div class="panel-body">
-            <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
+        <form id="demo-form" action="/proses-add-orang-tua" class="form-horizontal mb-lg" method="POST" novalidate="novalidate">
+            <div class="panel-body">
                 <div class="form-group mt-lg">
                     <label class="col-sm-3 control-label">Nama</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" placeholder="Masukan Nama" required />
+                        <input type="text" name="nama_ortu" class="form-control <?= ($validation->hasError('nama_ortu')) ? 'is-invalid' : ''; ?>" value="<?= old('nama_ortu'); ?>" required />
+                        <div class="invalid-feedback"><?= $validation->getError('nama_ortu'); ?></div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
                     <div class="col-md-6">
-                        <select class="form-control mb-md">
-                            <option>Laki-Laki</option>
-                            <option>Perempuan</option>
+                        <select class="form-control mb-md" name="jk_ortu">
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
                         </select>
                     </div>
                 </div>
-            </form>
-        </div>
-        <footer class="panel-footer">
-            <div class="row">
-                <div class="col-md-12 text-right">
-                    <button class="btn btn-default modal-dismiss">Cancel</button>
-                    <button class="btn btn-primary modal-confirm">Save</button>
-                </div>
             </div>
-        </footer>
+            <footer class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-default modal-dismiss">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </footer>
+        </form>
     </section>
 </div>
 
-<div id="modalFormEdit" class="modal-block modal-block-primary mfp-hide">
-    <section class="panel">
-        <header class="panel-heading">
-            <h2 class="panel-title">Edit Data Orang Tua</h2>
-        </header>
-        <div class="panel-body">
-            <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Nama</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" placeholder="Masukan Nama" required />
-                    </div>
-                </div>
+<?php foreach ($data_ortu as $ortus) : ?>
+    <div id="modalFormEdit<?= $ortus['id_ortu']; ?>" class="modal-block modal-block-primary mfp-hide">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Edit Data Orang Tua</h2>
+            </header>
+            <form id="demo-form" action="/proses-update-orang-tua" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
+                <div class="panel-body">
+                    <input type="hidden" name="id_ortu" value="<?= $ortus['id_ortu']; ?>">
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
-                    <div class="col-md-6">
-                        <select class="form-control mb-md">
-                            <option>Laki-Laki</option>
-                            <option>Perempuan</option>
-                        </select>
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">Nama</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="nama_ortu" class="form-control <?= ($validation->hasError('nama_ortu')) ? 'is-invalid' : ''; ?>" value="<?= $ortus['nama_ortu'] ?>" required />
+                            <div class="invalid-feedback"><?= $validation->getError('nama_ortu'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
+                        <div class="col-md-6">
+                            <select class="form-control mb-md" name="jk_ortu">
+                                <option value="<?= $ortus['jk_ortu']; ?>"><?= $ortus['jk_ortu']; ?></option>
+                                <option value="Laki-Laki">Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </footer>
             </form>
-        </div>
-        <footer class="panel-footer">
-            <div class="row">
-                <div class="col-md-12 text-right">
-                    <button class="btn btn-default modal-dismiss">Cancel</button>
-                    <button class="btn btn-primary modal-confirm">Save</button>
+        </section>
+    </div>
+<?php endforeach ?>
+
+<?php foreach ($data_ortu as $ortudel) : ?>
+    <div id="modalDanger<?= $ortudel['id_ortu']; ?>" class="modal-block modal-block-danger mfp-hide">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Delete Data!</h2>
+            </header>
+            <form id="demo-form" action="/delete-ortu/<?= $ortu['id_ortu']; ?>" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
+                <div class="panel-body">
+                    <div class="modal-wrapper">
+                        <div class="modal-icon">
+                            <i class="fa fa-times-circle"></i>
+                        </div>
+                        <div class="modal-text">
+                            <h4>Delete</h4>
+                            <p>Anda Yakin akan menghapus data ortu <?= $ortudel['nama_ortu']; ?>.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </footer>
-    </section>
-</div>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </footer>
+            </form>
+        </section>
+    </div>
+<?php endforeach ?>
 
 <?= $this->endSection(); ?>

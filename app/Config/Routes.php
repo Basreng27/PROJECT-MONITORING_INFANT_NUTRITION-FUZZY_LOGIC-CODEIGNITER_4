@@ -22,7 +22,12 @@ $routes->post('/proses-login', 'Login::prosesLogin');
 // admin
 $routes->get('/home', 'Admin::index');
 // master pasien
+// ortu
 $routes->get('/orang-tua', 'Admin::orangTua');
+$routes->post('/proses-add-orang-tua', 'MasterPasien\Ortu::prosesAddOrtu');
+$routes->post('/proses-update-orang-tua', 'MasterPasien\Ortu::prosesUpdateOrtu');
+$routes->delete('/delete-ortu/(:num)', 'MasterPasien\Ortu::deleteOrtu/$1');
+// balita
 $routes->get('/balita', 'Admin::balita');
 // master data
 $routes->get('/umur', 'Admin::umur');
