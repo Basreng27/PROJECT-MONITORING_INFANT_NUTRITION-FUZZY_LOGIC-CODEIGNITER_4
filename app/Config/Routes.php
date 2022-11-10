@@ -17,6 +17,7 @@ $routes->set404Override();
 
 // login
 $routes->get('/', 'Login::index');
+$routes->post('/proses-login', 'Login::prosesLogin');
 
 // admin
 $routes->get('/home', 'Admin::index');

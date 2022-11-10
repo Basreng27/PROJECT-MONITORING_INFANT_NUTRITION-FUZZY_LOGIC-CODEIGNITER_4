@@ -48,12 +48,22 @@
                 <div class="panel-title-sign mt-xl text-right">
                     <h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Login</h2>
                 </div>
+
                 <div class="panel-body">
-                    <form action="index.html" method="post">
+                    <form action="/proses-login" method="post">
+
+                        <?php if (session()->getFlashdata('gagal')) { ?>
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                Password atau Username <strong>salah</strong>, silahkan cobalagi
+                            </div>
+                        <?php } ?>
+
                         <div class="form-group mb-lg">
                             <label>Username</label>
                             <div class="input-group input-group-icon">
-                                <input name="username" type="text" class="form-control input-lg" />
+                                <input type="text" name="username" class="form-control input-lg <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" value="<?= old('username'); ?>" />
+                                <div class="invalid-feedback"><?= $validation->getError('username'); ?></div>
                                 <span class="input-group-addon">
                                     <span class="icon icon-lg">
                                         <i class="fa fa-user"></i>
@@ -65,15 +75,25 @@
                         <div class="form-group mb-lg">
                             <div class="clearfix">
                                 <label class="pull-left">Password</label>
-                                <a href="pages-recover-password.html" class="pull-right">Lost Password?</a>
                             </div>
                             <div class="input-group input-group-icon">
-                                <input name="pwd" type="password" class="form-control input-lg" />
+                                <input type="password" name="password" class="form-control input-lg <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" />
+                                <div class="invalid-feedback"><?= $validation->getError('password'); ?></div>
                                 <span class="input-group-addon">
                                     <span class="icon icon-lg">
                                         <i class="fa fa-lock"></i>
                                     </span>
                                 </span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="checkbox-custom checkbox-default">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <button type="submit" class="btn btn-primary hidden-xs">Sign In</button>
                             </div>
                         </div>
                     </form>
