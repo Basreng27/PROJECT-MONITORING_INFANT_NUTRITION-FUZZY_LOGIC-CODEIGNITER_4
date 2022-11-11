@@ -4,16 +4,25 @@ namespace App\Controllers;
 
 use App\Models\Ortu_model;
 use App\Models\Balita_model;
+use App\Models\Umur_model;
+use App\Models\Berat_model;
+use App\Models\Tinggi_model;
 
 class Admin extends BaseController
 {
     protected $OrtuModel;
     protected $BalitaModel;
+    protected $UmurModel;
+    protected $BeratModel;
+    protected $TinggiModel;
 
     public function __construct()
     {
         $this->OrtuModel = new Ortu_model();
         $this->BalitaModel = new Balita_model();
+        $this->UmurModel = new Umur_model();
+        $this->BeratModel = new Berat_model();
+        $this->TinggiModel = new Tinggi_model();
     }
 
     public function index()
@@ -22,7 +31,12 @@ class Admin extends BaseController
             return redirect('/');
         }
 
-        return view('Pages/Admin/home');
+        $data = [
+            'data_ortu' => $this->OrtuModel->countAllResults(),
+            'data_balita' => $this->BalitaModel->countAllResults()
+        ];
+
+        return view('Pages/Admin/home', $data);
     }
 
     public function orangTua()
@@ -60,7 +74,12 @@ class Admin extends BaseController
             return redirect('/');
         }
 
-        return view('Pages/Admin/Master-Data/umur');
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'data_umur' => $this->UmurModel->findAll()
+        ];
+
+        return view('Pages/Admin/Master-Data/umur', $data);
     }
 
     public function beratBadan()
@@ -69,7 +88,12 @@ class Admin extends BaseController
             return redirect('/');
         }
 
-        return view('Pages/Admin/Master-Data/berat_badan');
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'data_berat' => $this->BeratModel->findAll()
+        ];
+
+        return view('Pages/Admin/Master-Data/berat_badan', $data);
     }
 
     public function tinggiBadan()
@@ -78,7 +102,12 @@ class Admin extends BaseController
             return redirect('/');
         }
 
-        return view('Pages/Admin/Master-Data/tinggi_badan');
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'data_tinggi' => $this->TinggiModel->findAll()
+        ];
+
+        return view('Pages/Admin/Master-Data/tinggi_badan', $data);
     }
 
     public function perhitungan()

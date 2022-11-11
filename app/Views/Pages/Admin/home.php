@@ -23,9 +23,9 @@
                                 </div>
                                 <div class="widget-summary-col">
                                     <div class="summary">
-                                        <h4 class="title">Data Anak</h4>
+                                        <h4 class="title">Data Balita</h4>
                                         <div class="info">
-                                            <strong class="amount">98</strong>
+                                            <strong class="amount"><?= $data_balita; ?></strong>
                                         </div>
                                     </div>
                                     <div class="summary-footer">
@@ -50,7 +50,7 @@
                                     <div class="summary">
                                         <h4 class="title">Data Orang Tua</h4>
                                         <div class="info">
-                                            <strong class="amount">78</strong>
+                                            <strong class="amount"><?= $data_ortu; ?></strong>
                                         </div>
                                     </div>
                                     <div class="summary-footer">

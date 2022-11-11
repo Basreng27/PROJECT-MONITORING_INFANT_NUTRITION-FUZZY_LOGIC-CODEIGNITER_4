@@ -72,8 +72,8 @@
                 <div id="userbox" class="userbox">
                     <a href="#" data-toggle="dropdown">
                         <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@JSOFT.com">
-                            <span class="name">Nama Admin</span>
-                            <span class="role">administrator</span>
+                            <span class="name"><?= session()->get('nama') ?></span>
+                            <span class="role">Administrator</span>
                         </div>
 
                         <i class="fa custom-caret"></i>
