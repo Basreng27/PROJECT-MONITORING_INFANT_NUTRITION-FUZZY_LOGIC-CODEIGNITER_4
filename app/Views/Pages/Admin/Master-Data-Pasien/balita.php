@@ -77,13 +77,24 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="col-md-3 control-label">Nama Orang Tua</label>
                     <div class="col-md-6">
-                        <select data-plugin-selectTwo class="form-control populate">
+                        <select class="form-control populate" data-plugin-selectTwo>
                             <optgroup label="Nama Orang Tua">
                                 <option value="AK">Udin</option>
                             </optgroup>
+                        </select>
+                    </div>
+                </div> -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Orang Tua</label>
+                    <div class="col-md-6">
+                        <select name="id_orangtua" class="form-control">
+                            <option value="">===== Pilih Orang Tua =====</option>
+                            <?php foreach ($data_ortu as $ortu) : ?>
+                                <option value="<?= $data_ortu['id_ortu']; ?>"><?= $data_ortu['nama_ortu']; ?></option>
+                            <?php endforeach ?>
                         </select>
                     </div>
                 </div>
@@ -124,7 +135,7 @@
 <div id="modalFormEdit" class="modal-block modal-block-primary mfp-hide">
     <section class="panel">
         <header class="panel-heading">
-            <h2 class="panel-title">Edit Data OBalita</h2>
+            <h2 class="panel-title">Edit Data Balita</h2>
         </header>
         <div class="panel-body">
             <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
