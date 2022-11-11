@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\Ortu_model;
+use App\Models\Balita_model;
 
 class Admin extends BaseController
 {
     protected $OrtuModel;
+    protected $BalitaModel;
 
     public function __construct()
     {
         $this->OrtuModel = new Ortu_model();
+        $this->BalitaModel = new Balita_model();
     }
 
     public function index()
@@ -43,7 +46,9 @@ class Admin extends BaseController
         }
 
         $data = [
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'data_balita' => $this->BalitaModel->findAll(),
+            'data_ortu' => $this->OrtuModel->findAll()
         ];
 
         return view('Pages/Admin/Master-Data-Pasien/balita', $data);
