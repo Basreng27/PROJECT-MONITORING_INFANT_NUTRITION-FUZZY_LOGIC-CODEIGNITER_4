@@ -29,6 +29,9 @@ $routes->post('/proses-update-orang-tua', 'MasterPasien\Ortu::prosesUpdateOrtu')
 $routes->delete('/delete-ortu/(:num)', 'MasterPasien\Ortu::deleteOrtu/$1');
 // balita
 $routes->get('/balita', 'Admin::balita');
+$routes->post('/proses-add-balita', 'MasterPasien\Balita::prosesAddBalita');
+$routes->post('/proses-update-balita', 'MasterPasien\Balita::prosesUpdateBalita');
+$routes->delete('/delete-balita/(:num)', 'MasterPasien\Balita::deleteBalita/$1');
 // master data
 $routes->get('/umur', 'Admin::umur');
 $routes->get('/berat-badan', 'Admin::beratBadan');

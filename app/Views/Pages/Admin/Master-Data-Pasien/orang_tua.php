@@ -21,6 +21,13 @@
         </div>
     <?php } ?>
 
+    <?php if (session()->getFlashdata('berhasil-delete')) { ?>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            Data Orag Tua <strong>berhasil</strong> didelete
+        </div>
+    <?php } ?>
+
     <!-- start: page -->
     <section class="panel">
         <header class="panel-heading">

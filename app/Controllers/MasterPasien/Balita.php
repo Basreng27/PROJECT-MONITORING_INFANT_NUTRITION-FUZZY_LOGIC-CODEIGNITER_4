@@ -52,19 +52,47 @@ class Balita extends BaseController
             return redirect()->to('/balita')->withInput();
         }
 
-        $this->OrtuModel->save([
-            'nama_ortu' => $this->request->getVar('nama_ortu'),
-            'jk_ortu' => $this->request->getVar('jk_ortu')
+        $this->BalitaModel->save([
+            'nama_balita' => $this->request->getVar('nama_balita'),
+            'jk_balita' => $this->request->getVar('jk_balita'),
+            'id_ortu' => $this->request->getVar('id_ortu'),
+            'umur' => $this->request->getVar('umur'),
+            'tinggi' => $this->request->getVar('tinggi'),
+            'berat' => $this->request->getVar('berat')
         ]);
 
         session()->setFlashdata('berhasil', 'Data berhasil ditambahkan');
-        return redirect()->to('/orang-tua');
+        return redirect()->to('/balita');
     }
 
-    public function prosesUpdateOrtu()
+    public function prosesUpdateBalita()
     {
         if (!$this->validate([
-            'nama_ortu' => [
+            'nama_balita' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'id_ortu' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'umur' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'tinggi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'berat' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi'
@@ -72,24 +100,28 @@ class Balita extends BaseController
             ]
         ])) {
             session()->setFlashdata('gagal', 'Data gagal ditambahkan');
-            return redirect()->to('/orang-tua')->withInput();
+            return redirect()->to('/balita')->withInput();
         }
 
-        $this->OrtuModel->save([
+        $this->BalitaModel->save([
+            'id_balita' => $this->request->getVar('id_balita'),
+            'nama_balita' => $this->request->getVar('nama_balita'),
+            'jk_balita' => $this->request->getVar('jk_balita'),
             'id_ortu' => $this->request->getVar('id_ortu'),
-            'nama_ortu' => $this->request->getVar('nama_ortu'),
-            'jk_ortu' => $this->request->getVar('jk_ortu')
+            'umur' => $this->request->getVar('umur'),
+            'tinggi' => $this->request->getVar('tinggi'),
+            'berat' => $this->request->getVar('berat')
         ]);
 
         session()->setFlashdata('berhasil', 'Data berhasil ditambahkan');
-        return redirect()->to('/orang-tua');
+        return redirect()->to('/balita');
     }
 
-    public function deleteOrtu($id_ortu)
+    public function deleteBalita($id_balita)
     {
-        $this->OrtuModel->delete($id_ortu);
+        $this->BalitaModel->delete($id_balita);
 
         session()->setFlashdata('berhasil-delete', 'Data berhasil delete');
-        return redirect()->to('/orang-tua');
+        return redirect()->to('/balita');
     }
 }

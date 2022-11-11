@@ -10,4 +10,9 @@ class Balita_model extends Model
     protected $primaryKey = 'id_balita';
     protected $useTimestamps = false;
     protected $allowedFields = ['nama_balita', 'jk_balita', 'id_ortu', 'umur', 'tinggi', 'berat'];
+
+    public function balitaXortu()
+    {
+        return $this->join('ortu', 'balita.id_ortu = ortu.id_ortu')->find();
+    }
 }

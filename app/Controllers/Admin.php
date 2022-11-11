@@ -47,7 +47,7 @@ class Admin extends BaseController
 
         $data = [
             'validation' => \Config\Services::validation(),
-            'data_balita' => $this->BalitaModel->findAll(),
+            'data_balita' => $this->BalitaModel->balitaXortu(),
             'data_ortu' => $this->OrtuModel->findAll()
         ];
 
