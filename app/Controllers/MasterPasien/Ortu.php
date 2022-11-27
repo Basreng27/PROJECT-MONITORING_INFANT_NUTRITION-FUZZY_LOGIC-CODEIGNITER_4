@@ -30,7 +30,7 @@ class Ortu extends BaseController
 
         $this->OrtuModel->save([
             'nama_ortu' => $this->request->getVar('nama_ortu'),
-            'jk_ortu' => $this->request->getVar('jk_ortu')
+            'id_jk_ortu' => $this->request->getVar('id_jk_ortu')
         ]);
 
         session()->setFlashdata('berhasil', 'Data berhasil ditambahkan');
@@ -54,7 +54,7 @@ class Ortu extends BaseController
         $this->OrtuModel->save([
             'id_ortu' => $this->request->getVar('id_ortu'),
             'nama_ortu' => $this->request->getVar('nama_ortu'),
-            'jk_ortu' => $this->request->getVar('jk_ortu')
+            'id_jk_ortu' => $this->request->getVar('id_jk_ortu')
         ]);
 
         session()->setFlashdata('berhasil', 'Data berhasil ditambahkan');

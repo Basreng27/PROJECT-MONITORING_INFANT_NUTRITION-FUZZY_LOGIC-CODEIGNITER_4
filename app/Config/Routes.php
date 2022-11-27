@@ -50,6 +50,15 @@ $routes->post('/proses-update-tinggi', 'MasterData\Tinggi::prosesUpdateTinggi');
 $routes->delete('/delete-tinggi/(:num)', 'MasterData\Tinggi::deleteTinggi/$1');
 // perhitungan
 $routes->get('/perhitungan', 'Admin::perhitungan');
+// bb-u
+$routes->get('/bb-u/(:num)', 'Admin::BbU/$1');
+$routes->get('/v_bb-u', 'Admin::VBbU');
+// pb-u
+$routes->get('/pb-u/(:num)', 'Admin::PbU/$1');
+$routes->get('/v_pb-u', 'Admin::VPbU');
+// bb-pb
+$routes->get('/bb-pb/(:num)', 'Admin::BbPb/$1');
+$routes->get('/v_bb-pb', 'Admin::VBbPb');
 
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';

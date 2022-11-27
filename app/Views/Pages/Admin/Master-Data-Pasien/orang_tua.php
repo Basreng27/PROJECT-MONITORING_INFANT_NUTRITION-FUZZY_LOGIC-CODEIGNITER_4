@@ -56,7 +56,7 @@
                         <tr>
                             <td><?= $no++; ?></td>
                             <td><?= $ortu['nama_ortu']; ?></td>
-                            <td><?= $ortu['jk_ortu']; ?></td>
+                            <td><?= $ortu['jk']; ?></td>
                             <td>
                                 <a href="#modalFormEdit<?= $ortu['id_ortu']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
                                 ||
@@ -90,9 +90,9 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
                     <div class="col-md-6">
-                        <select class="form-control mb-md" name="jk_ortu">
-                            <option value="Laki-Laki">Laki-Laki</option>
-                            <option value="Perempuan">Perempuan</option>
+                        <select class="form-control mb-md" name="id_jk_ortu">
+                            <option value="1">Laki-Laki</option>
+                            <option value="2">Perempuan</option>
                         </select>
                     </div>
                 </div>
@@ -130,10 +130,10 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
                         <div class="col-md-6">
-                            <select class="form-control mb-md" name="jk_ortu">
-                                <option value="<?= $ortus['jk_ortu']; ?>"><?= $ortus['jk_ortu']; ?></option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                <option value="Perempuan">Perempuan</option>
+                            <select class="form-control mb-md" name="id_jk_ortu">
+                                <option value="<?= $ortus['id_jk_ortu']; ?>"><?= $ortus['jk']; ?></option>
+                                <option value="1">Laki-Laki</option>
+                                <option value="2">Perempuan</option>
                             </select>
                         </div>
                     </div>

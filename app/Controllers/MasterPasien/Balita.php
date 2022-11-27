@@ -54,7 +54,7 @@ class Balita extends BaseController
 
         $this->BalitaModel->save([
             'nama_balita' => $this->request->getVar('nama_balita'),
-            'jk_balita' => $this->request->getVar('jk_balita'),
+            'id_jk_balita' => $this->request->getVar('id_jk_balita'),
             'id_ortu' => $this->request->getVar('id_ortu'),
             'umur' => $this->request->getVar('umur'),
             'tinggi' => $this->request->getVar('tinggi'),
@@ -106,7 +106,7 @@ class Balita extends BaseController
         $this->BalitaModel->save([
             'id_balita' => $this->request->getVar('id_balita'),
             'nama_balita' => $this->request->getVar('nama_balita'),
-            'jk_balita' => $this->request->getVar('jk_balita'),
+            'id_jk_balita' => $this->request->getVar('id_jk_balita'),
             'id_ortu' => $this->request->getVar('id_ortu'),
             'umur' => $this->request->getVar('umur'),
             'tinggi' => $this->request->getVar('tinggi'),

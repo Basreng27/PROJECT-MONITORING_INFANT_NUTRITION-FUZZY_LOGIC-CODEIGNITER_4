@@ -57,14 +57,36 @@ class Umur extends BaseController
                 'errors' => [
                     'required' => '{field} harus diisi'
                 ]
-            ]
+            ],
+            'umur_dari' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'umur_sampai' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+
         ])) {
+            session()->setFlashdata('gagal', 'Data gagal ditambahkan');
+            return redirect()->to('/umur')->withInput();
+        }
+        $umur_dari = $this->request->getVar('umur_dari');
+        $umur_sampai = $this->request->getVar('umur_sampai');
+
+        if ($umur_dari > $umur_sampai || $umur_dari == $umur_sampai) {
             session()->setFlashdata('gagal', 'Data gagal ditambahkan');
             return redirect()->to('/umur')->withInput();
         }
 
         $this->UmurModel->save([
             'id_umur' => $this->request->getVar('id_umur'),
+            'umur_dari' => $umur_dari,
+            'umur_sampai' => $umur_sampai,
             'kategori_umur' => $this->request->getVar('kategori_umur'),
             'keterangan_umur' => $this->request->getVar('keterangan_umur')
         ]);

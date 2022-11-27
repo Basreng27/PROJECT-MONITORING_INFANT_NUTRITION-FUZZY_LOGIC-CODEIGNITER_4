@@ -39,12 +39,14 @@
             <h2 class="panel-title">Umur</h2>
         </header>
         <div class="panel-body">
-            <a class="modal-with-form btn btn-default" href="#modalForm">Add <i class="fa fa-plus"></i></a>
+            <!-- <a class="modal-with-form btn btn-default" href="#modalForm">Add <i class="fa fa-plus"></i></a> -->
             <table class="table table-bordered table-striped mb-none" id="datatable-tabletools" data-swf-path="assets/vendor/jquery-datatables/extras/TableTools/swf/copy_csv_xls_pdf.swf">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Kategori</th>
+                        <th>Dari Umur</th>
+                        <th>Sampai Umur</th>
                         <th>Keterangan</th>
                         <th>Action</th>
                     </tr>
@@ -56,11 +58,13 @@
                         <tr>
                             <td><?= $no++; ?></td>
                             <td><?= $umur['kategori_umur']; ?></td>
+                            <td><?= $umur['umur_dari']; ?></td>
+                            <td><?= $umur['umur_sampai']; ?></td>
                             <td><?= $umur['keterangan_umur']; ?></td>
                             <td>
                                 <a href="#modalFormEdit<?= $umur['id_umur']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                ||
-                                <a href="#modalDanger<?= $umur['id_umur']; ?>" class="modal-with-form on-default"><i class="fa fa-trash-o"></i></a>
+                                <!-- || -->
+                                <!-- <a href="#modalDanger<?= $umur['id_umur']; ?>" class="modal-with-form on-default"><i class="fa fa-trash-o"></i></a> -->
                             </td>
                         </tr>
                     <?php endforeach ?>
@@ -122,6 +126,23 @@
                         <div class="col-sm-9">
                             <input type="text" class="form-control <?= ($validation->hasError('kategori_umur')) ? 'is-invalid' : ''; ?>" value="<?= $umurs['kategori_umur'] ?>" name="kategori_umur" placeholder="Masukan Nama Kategori" required />
                             <div class="invalid-feedback"><?= $validation->getError('kategori_umur'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
+                        <div class="col-sm-5">
+                            <label class="col-sm-12 control-label" style="text-align:left;">Dari Umur (Bulan)</label>
+                            <input type="number" class="form-control <?= ($validation->hasError('umur_dari')) ? 'is-invalid' : ''; ?>" value="<?= $umurs['umur_dari'] ?>" name="umur_dari" placeholder="Masukan Umur Dari" required maxlength="2" />
+                            <div class="invalid-feedback"><?= $validation->getError('umur_dari'); ?></div>
+                        </div>
+                        <div class="col-sm-2">
+                            <label class="col-sm-1 control-label">Sampai</label>
+                            <input type="text" class="form-control" style="text-align: center;" value="-" />
+                        </div>
+                        <div class="col-sm-5">
+                            <label class="col-sm-12 control-label" style="text-align: left;">Sampai Umur (Bulan)</label>
+                            <input type="number" class="form-control <?= ($validation->hasError('umur_sampai')) ? 'is-invalid' : ''; ?>" value="<?= $umurs['umur_sampai'] ?>" name="umur_sampai" placeholder="Masukan Sampai Umur" required maxlength="2" />
+                            <div class="invalid-feedback"><?= $validation->getError('umur_sampai'); ?></div>
                         </div>
                     </div>
 

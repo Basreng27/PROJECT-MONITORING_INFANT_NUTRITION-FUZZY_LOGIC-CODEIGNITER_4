@@ -60,7 +60,7 @@
                         <tr>
                             <td><?= $no++; ?></td>
                             <td><?= $balita['nama_balita']; ?></td>
-                            <td><?= $balita['jk_balita']; ?></td>
+                            <td><?= $balita['jk']; ?></td>
                             <td><?= $balita['nama_ortu']; ?></td>
                             <td><?= $balita['umur']; ?> Bulan</td>
                             <td><?= $balita['tinggi']; ?> Cm</td>
@@ -97,9 +97,9 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
                     <div class="col-md-6">
-                        <select class="form-control mb-md" name="jk_balita">
-                            <option value="Laki-Laki">Laki-Laki</option>
-                            <option value="Perempuan">Perempuan</option>
+                        <select class="form-control mb-md" name="id_jk_balita">
+                            <option value="1-Laki">Laki-Laki</option>
+                            <option value="2">Perempuan</option>
                         </select>
                     </div>
                 </div>
@@ -174,10 +174,10 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
                         <div class="col-md-6">
-                            <select class="form-control mb-md" name="jk_balita">
-                                <option value="<?= $balitas['jk_balita']; ?>"><?= $balitas['jk_balita']; ?></option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                <option value="Perempuan">Perempuan</option>
+                            <select class="form-control mb-md" name="id_jk_balita">
+                                <option value="<?= $balitas['id_jk_balita']; ?>"><?= $balitas['jk']; ?></option>
+                                <option value="1">Laki-Laki</option>
+                                <option value="2">Perempuan</option>
                             </select>
                         </div>
                     </div>

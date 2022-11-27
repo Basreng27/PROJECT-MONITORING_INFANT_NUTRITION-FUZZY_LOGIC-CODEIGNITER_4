@@ -9,5 +9,5 @@ class Umur_model extends Model
     protected $table = 'umur';
     protected $primaryKey = 'id_umur';
     protected $useTimestamps = false;
-    protected $allowedFields = ['kategori_umur', 'keterangan_umur'];
+    protected $allowedFields = ['kategori_umur', 'umur_dari', 'umur_sampai', 'keterangan_umur'];
 }
