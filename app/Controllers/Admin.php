@@ -128,7 +128,12 @@ class Admin extends BaseController
             return redirect('/');
         }
 
-        return view('Pages/Admin/perhitungan');
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'data_' => $this->BalitaModel->balitaXortuXbalita()
+        ];
+
+        return view('Pages/Admin/perhitungan', $data);
     }
 
     public function VBbU()

@@ -21,7 +21,7 @@
                 <thead style="text-align: center;">
                     <tr>
                         <td rowspan="2">No</td>
-                        <td rowspan="2"> Umur (Bulan)</td>
+                        <td rowspan="2"> Panjang Badan (CM)</td>
                         <td colspan="7"> Berat Badan (KG)</td>
                     </tr>
                     <tr>
@@ -69,7 +69,7 @@
                 <thead style="text-align: center;">
                     <tr>
                         <td rowspan="2">No</td>
-                        <td rowspan="2"> Umur (Bulan)</td>
+                        <td rowspan="2"> Panjang Badan (CM)</td>
                         <td colspan="7"> Berat Badan (KG)</td>
                     </tr>
                     <tr>

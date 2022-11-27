@@ -50,6 +50,7 @@ $routes->post('/proses-update-tinggi', 'MasterData\Tinggi::prosesUpdateTinggi');
 $routes->delete('/delete-tinggi/(:num)', 'MasterData\Tinggi::deleteTinggi/$1');
 // perhitungan
 $routes->get('/perhitungan', 'Admin::perhitungan');
+$routes->get('/proses-hitung/(:num)', 'Perhitungan::prosesHitung/$1');
 // bb-u
 $routes->get('/bb-u/(:num)', 'Admin::BbU/$1');
 $routes->get('/v_bb-u', 'Admin::VBbU');

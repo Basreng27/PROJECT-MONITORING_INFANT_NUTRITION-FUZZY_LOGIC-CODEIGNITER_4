@@ -26,26 +26,30 @@
                         <th>Jenis Kelamin</th>
                         <th>Orang Tua</th>
                         <th>Umur</th>
-                        <th>Berat Badan</th>
                         <th>Tinggi Badan</th>
+                        <th>Berat Badan</th>
                         <th>Hasil</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Ucup</td>
-                        <td>Laki Laki</td>
-                        <td>Udin</td>
-                        <td>2 Bulan</td>
-                        <td>72 Cm</td>
-                        <td>23 Kg</td>
-                        <td>OK</td>
-                        <td>
-                            <a href="#" class="modal-with-form on-default edit-row"><i class="fa fa-gear"></i></a>
-                        </td>
-                    </tr>
+                    <?php
+                    $no = 1;
+                    foreach ($data_ as $data) : ?>
+                        <tr>
+                            <td><?= $no++; ?></td>
+                            <td><?= $data['nama_balita']; ?></td>
+                            <td><?= $data['jk']; ?></td>
+                            <td><?= $data['nama_ortu']; ?></td>
+                            <td><?= $data['umur']; ?> Bulan</td>
+                            <td><?= $data['tinggi']; ?> Cm</td>
+                            <td><?= $data['berat']; ?> Kg</td>
+                            <td>OK</td>
+                            <td>
+                                <a href="/proses-hitung/<?= $data['id_balita']; ?>" class="on-default edit-row"><i class="fa fa-gear"></i></a>
+                            </td>
+                        <?php endforeach ?>
+                        </tr>
                 </tbody>
             </table>
         </div>
