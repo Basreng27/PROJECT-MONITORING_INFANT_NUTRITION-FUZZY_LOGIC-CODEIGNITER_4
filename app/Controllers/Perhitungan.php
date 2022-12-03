@@ -2,39 +2,27 @@
 
 namespace App\Controllers;
 
-use App\Models\Ortu_model;
 use App\Models\Balita_model;
-use App\Models\Umur_model;
-use App\Models\Berat_model;
-use App\Models\Tinggi_model;
-use App\Models\Jk_model;
 use App\Models\Bb_U_model;
 use App\Models\Pb_U_model;
 use App\Models\Bb_Pb_model;
+use App\Models\Hasil_model;
 
 class Perhitungan extends BaseController
 {
-    // protected $OrtuModel;
     protected $BalitaModel;
-    // protected $UmurModel;
-    // protected $BeratModel;
-    // protected $TinggiModel;
-    // protected $JkModel;
     protected $Bb_UModel;
     protected $Pb_UModel;
     protected $Bb_PbModel;
+    protected $Hasil_Model;
 
     public function __construct()
     {
-        $this->OrtuModel = new Ortu_model();
         $this->BalitaModel = new Balita_model();
-        $this->UmurModel = new Umur_model();
-        $this->BeratModel = new Berat_model();
-        $this->TinggiModel = new Tinggi_model();
-        $this->JkModel = new Jk_model();
         $this->Bb_UModel = new Bb_U_model();
         $this->Pb_UModel = new Pb_U_model();
         $this->Bb_PbModel = new Bb_Pb_model();
+        $this->Hasil_Model = new Hasil_model();
     }
 
     public function prosesHitung($id_balita)
@@ -112,13 +100,14 @@ class Perhitungan extends BaseController
             return redirect()->to('/perhitungan');
         }
 
-        dd($status_bb_u . ' | ' . $status_pb_u . ' | ' . $status_bb_pb);
+        $this->Hasil_Model->save([
+            'id_balita' => $id_balita,
+            'status_bb_u' => $status_bb_u,
+            'status_pb_u' => $status_pb_u,
+            'status_bb_pb' => $status_bb_pb
+        ]);
 
-        $data = [
-            'data_ortu' => $this->OrtuModel->countAllResults(),
-            'data_balita' => $this->BalitaModel->countAllResults()
-        ];
-
-        return view('Pages/Admin/home', $data);
+        session()->setFlashdata('berhasil', 'data berhasil di hitung');
+        return redirect()->to('/perhitungan');
     }
 }

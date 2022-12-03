@@ -130,7 +130,7 @@ class Admin extends BaseController
 
         $data = [
             'validation' => \Config\Services::validation(),
-            'data_' => $this->BalitaModel->balitaXortuXbalita()
+            'data_' => $this->BalitaModel->balitaXortuXbalitaXhasil()
         ];
 
         return view('Pages/Admin/perhitungan', $data);

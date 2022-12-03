@@ -59,4 +59,10 @@ class Login extends BaseController
             return redirect()->to('/home');
         }
     }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/');
+    }
 }

@@ -18,4 +18,14 @@ class Balita_model extends Model
         $this->join('jk', 'jk.id_jk = balita.id_jk_balita');
         return  $this->findAll();
     }
+
+    public function balitaXortuXbalitaXhasil()
+    {
+        $this->select('*, balita.id_balita AS idBalita');
+        $this->join('ortu', 'balita.id_ortu = ortu.id_ortu');
+        $this->join('jk', 'jk.id_jk = balita.id_jk_balita');
+        $this->join('hasil', 'balita.id_balita = hasil.id_balita', 'LEFT');
+
+        return  $this->findAll();
+    }
 }
