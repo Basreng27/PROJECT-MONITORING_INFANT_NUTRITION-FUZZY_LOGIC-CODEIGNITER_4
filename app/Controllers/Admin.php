@@ -11,6 +11,7 @@ use App\Models\Jk_model;
 use App\Models\Bb_U_model;
 use App\Models\Pb_U_model;
 use App\Models\Bb_Pb_model;
+use App\Models\Data_model;
 
 class Admin extends BaseController
 {
@@ -23,6 +24,7 @@ class Admin extends BaseController
     protected $Bb_UModel;
     protected $Pb_UModel;
     protected $Bb_PbModel;
+    protected $DataModel;
 
     public function __construct()
     {
@@ -35,6 +37,7 @@ class Admin extends BaseController
         $this->Bb_UModel = new Bb_U_model();
         $this->Pb_UModel = new Pb_U_model();
         $this->Bb_PbModel = new Bb_Pb_model();
+        $this->DataModel = new Data_model();
     }
 
     public function index()
@@ -130,7 +133,8 @@ class Admin extends BaseController
 
         $data = [
             'validation' => \Config\Services::validation(),
-            'data_' => $this->BalitaModel->balitaXortuXbalitaXhasil()
+            // 'data_' => $this->BalitaModel->balitaXortuXbalitaXhasil()
+            'data_' => $this->DataModel->vHitung()
         ];
 
         return view('Pages/Admin/perhitungan', $data);

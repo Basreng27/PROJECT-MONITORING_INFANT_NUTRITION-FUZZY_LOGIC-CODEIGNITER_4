@@ -28,24 +28,6 @@ class Balita extends BaseController
                 'errors' => [
                     'required' => '{field} harus diisi'
                 ]
-            ],
-            'umur' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'tinggi' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'berat' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
             ]
         ])) {
             session()->setFlashdata('gagal', 'Data gagal ditambahkan');
@@ -55,10 +37,7 @@ class Balita extends BaseController
         $this->BalitaModel->save([
             'nama_balita' => $this->request->getVar('nama_balita'),
             'id_jk_balita' => $this->request->getVar('id_jk_balita'),
-            'id_ortu' => $this->request->getVar('id_ortu'),
-            'umur' => $this->request->getVar('umur'),
-            'tinggi' => $this->request->getVar('tinggi'),
-            'berat' => $this->request->getVar('berat')
+            'id_ortu' => $this->request->getVar('id_ortu')
         ]);
 
         session()->setFlashdata('berhasil', 'Data berhasil ditambahkan');
@@ -79,24 +58,6 @@ class Balita extends BaseController
                 'errors' => [
                     'required' => '{field} harus diisi'
                 ]
-            ],
-            'umur' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'tinggi' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'berat' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
             ]
         ])) {
             session()->setFlashdata('gagal', 'Data gagal ditambahkan');
@@ -107,10 +68,7 @@ class Balita extends BaseController
             'id_balita' => $this->request->getVar('id_balita'),
             'nama_balita' => $this->request->getVar('nama_balita'),
             'id_jk_balita' => $this->request->getVar('id_jk_balita'),
-            'id_ortu' => $this->request->getVar('id_ortu'),
-            'umur' => $this->request->getVar('umur'),
-            'tinggi' => $this->request->getVar('tinggi'),
-            'berat' => $this->request->getVar('berat')
+            'id_ortu' => $this->request->getVar('id_ortu')
         ]);
 
         session()->setFlashdata('berhasil', 'Data berhasil ditambahkan');

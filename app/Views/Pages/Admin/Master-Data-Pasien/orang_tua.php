@@ -45,6 +45,9 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Pekerjaan</th>
+                        <th>No Telpon</th>
                         <th>Jenis Kelamin</th>
                         <th>Action</th>
                     </tr>
@@ -56,6 +59,9 @@
                         <tr>
                             <td><?= $no++; ?></td>
                             <td><?= $ortu['nama_ortu']; ?></td>
+                            <td><?= $ortu['alamat']; ?></td>
+                            <td><?= $ortu['pekerjaan']; ?></td>
+                            <td><?= $ortu['no_telpon']; ?></td>
                             <td><?= $ortu['jk']; ?></td>
                             <td>
                                 <a href="#modalFormEdit<?= $ortu['id_ortu']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
@@ -84,6 +90,30 @@
                     <div class="col-sm-9">
                         <input type="text" name="nama_ortu" class="form-control <?= ($validation->hasError('nama_ortu')) ? 'is-invalid' : ''; ?>" value="<?= old('nama_ortu'); ?>" required />
                         <div class="invalid-feedback"><?= $validation->getError('nama_ortu'); ?></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">Alamat</label>
+                    <div class="col-sm-9">
+                        <textarea type="text" name="alamat" class="form-control <?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" required><?= old('alamat'); ?></textarea>
+                        <div class="invalid-feedback"><?= $validation->getError('alamat'); ?></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">Pekerjaan</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="pekerjaan" class="form-control <?= ($validation->hasError('pekerjaan')) ? 'is-invalid' : ''; ?>" value="<?= old('pekerjaan'); ?>" required />
+                        <div class="invalid-feedback"><?= $validation->getError('pekerjaan'); ?></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">No Telpon</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="no_telpon" class="form-control <?= ($validation->hasError('no_telpon')) ? 'is-invalid' : ''; ?>" value="<?= old('no_telpon'); ?>" required />
+                        <div class="invalid-feedback"><?= $validation->getError('no_telpon'); ?></div>
                     </div>
                 </div>
 
@@ -124,6 +154,30 @@
                         <div class="col-sm-9">
                             <input type="text" name="nama_ortu" class="form-control <?= ($validation->hasError('nama_ortu')) ? 'is-invalid' : ''; ?>" value="<?= $ortus['nama_ortu'] ?>" required />
                             <div class="invalid-feedback"><?= $validation->getError('nama_ortu'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">Alamat</label>
+                        <div class="col-sm-9">
+                            <textarea type="text" name="alamat" class="form-control <?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" required><?= $ortus['alamat'] ?></textarea>
+                            <div class="invalid-feedback"><?= $validation->getError('alamat'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">Pekerjaan</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="pekerjaan" class="form-control <?= ($validation->hasError('pekerjaan')) ? 'is-invalid' : ''; ?>" value="<?= $ortus['pekerjaan'] ?>" required />
+                            <div class="invalid-feedback"><?= $validation->getError('pekerjaan'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">No Telpon</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="no_telpon" class="form-control <?= ($validation->hasError('no_telpon')) ? 'is-invalid' : ''; ?>" value="<?= $ortus['no_telpon'] ?>" required />
+                            <div class="invalid-feedback"><?= $validation->getError('no_telpon'); ?></div>
                         </div>
                     </div>
 

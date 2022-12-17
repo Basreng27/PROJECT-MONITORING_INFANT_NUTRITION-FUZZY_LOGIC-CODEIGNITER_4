@@ -117,6 +117,13 @@
                                     </a>
                                 </li>
 
+                                <li class="nav">
+                                    <a href="/data">
+                                        <i class="fa fa-copy" aria-hidden="true"></i>
+                                        <span>Data Antropologi Balita</span>
+                                    </a>
+                                </li>
+
                                 <li class="nav-parent">
                                     <a>
                                         <i class="fa fa-copy" aria-hidden="true"></i>
@@ -173,6 +180,13 @@
                                     <a href="/perhitungan">
                                         <i class="fa fa-reddit" aria-hidden="true"></i>
                                         <span>Perhitungan</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav">
+                                    <a href="/grafik">
+                                        <i class="fa fa-copy" aria-hidden="true"></i>
+                                        <span>Grafik Balita</span>
                                     </a>
                                 </li>
                             </ul>

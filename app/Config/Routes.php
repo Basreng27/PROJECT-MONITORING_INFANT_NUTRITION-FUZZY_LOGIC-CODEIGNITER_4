@@ -22,6 +22,15 @@ $routes->post('/proses-login', 'Login::prosesLogin');
 
 // admin
 $routes->get('/home', 'Admin::index');
+// data
+$routes->get('/data', 'Data::index');
+$routes->post('/proses-add-data', 'Data::prosesAdd');
+$routes->post('/proses-update-data', 'Data::prosesUpdate');
+$routes->delete('/delete-data/(:num)', 'Data::delete/$1');
+// grafik
+$routes->get('/grafik', 'Grafik::index');
+$routes->get('/one-grafik/(:num)', 'Grafik::oneGrafik/$1');
+
 // master pasien
 // orang tua
 $routes->get('/orang-tua', 'Admin::orangTua');

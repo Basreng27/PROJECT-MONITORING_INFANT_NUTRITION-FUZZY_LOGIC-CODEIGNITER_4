@@ -47,9 +47,6 @@
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
                         <th>Orang Tua</th>
-                        <th>Umur</th>
-                        <th>Tinggi Badan</th>
-                        <th>Berat Badan</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -62,9 +59,6 @@
                             <td><?= $balita['nama_balita']; ?></td>
                             <td><?= $balita['jk']; ?></td>
                             <td><?= $balita['nama_ortu']; ?></td>
-                            <td><?= $balita['umur']; ?> Bulan</td>
-                            <td><?= $balita['tinggi']; ?> Cm</td>
-                            <td><?= $balita['berat']; ?> Kg</td>
                             <td>
                                 <a href="#modalFormEdit<?= $balita['id_balita']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
                                 ||
@@ -114,30 +108,6 @@
                             <?php endforeach ?>
                         </select>
                         <div class="invalid-feedback"><?= $validation->getError('id_ortu'); ?></div>
-                    </div>
-                </div>
-
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Umur (Bulan)</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control <?= ($validation->hasError('umur')) ? 'is-invalid' : ''; ?>" value="<?= old('umur'); ?>" name="umur" placeholder="Masukan Umur Dalam hitungan Bulan" required />
-                        <div class="invalid-feedback"><?= $validation->getError('umur'); ?></div>
-                    </div>
-                </div>
-
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Tinggi (Cm)</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control <?= ($validation->hasError('tinggi')) ? 'is-invalid' : ''; ?>" value="<?= old('tinggi'); ?>" name="tinggi" placeholder="Masukan Tinggi Dalam hitungan Cm" required />
-                        <div class="invalid-feedback"><?= $validation->getError('tinggi'); ?></div>
-                    </div>
-                </div>
-
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Berat (Kg)</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control <?= ($validation->hasError('berat')) ? 'is-invalid' : ''; ?>" value="<?= old('berat'); ?>" name="berat" placeholder="Masukan Berat Dalam hitungan Kg" required />
-                        <div class="invalid-feedback"><?= $validation->getError('berat'); ?></div>
                     </div>
                 </div>
             </div>
@@ -194,30 +164,6 @@
                             <div class="invalid-feedback"><?= $validation->getError('id_ortu'); ?></div>
                         </div>
                     </div>
-
-                    <div class="form-group mt-lg">
-                        <label class="col-sm-3 control-label">Umur (Bulan)</label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control <?= ($validation->hasError('umur')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['umur']; ?>" name="umur" placeholder="Masukan Umur Dalam hitungan Bulan" required />
-                            <div class="invalid-feedback"><?= $validation->getError('umur'); ?></div>
-                        </div>
-                    </div>
-
-                    <div class="form-group mt-lg">
-                        <label class="col-sm-3 control-label">Tinggi (Cm)</label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control <?= ($validation->hasError('tinggi')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['tinggi']; ?>" name="tinggi" placeholder="Masukan Tinggi Dalam hitungan Cm" required />
-                            <div class="invalid-feedback"><?= $validation->getError('tinggi'); ?></div>
-                        </div>
-                    </div>
-
-                    <div class="form-group mt-lg">
-                        <label class="col-sm-3 control-label">Berat (Kg)</label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control <?= ($validation->hasError('berat')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['berat']; ?>" name="berat" placeholder="Masukan Berat Dalam hitungan Kg" required />
-                            <div class="invalid-feedback"><?= $validation->getError('berat'); ?></div>
-                        </div>
-                    </div>
                 </div>
 
                 <footer class="panel-footer">
@@ -240,7 +186,7 @@
             <header class="panel-heading">
                 <h2 class="panel-title">Delete Data!</h2>
             </header>
-            <form id="demo-form" action="/delete-balita/<?= $balita['id_balita']; ?>" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
+            <form id="demo-form" action="/delete-balita/<?= $balitadel['id_balita']; ?>" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
                 <div class="panel-body">
                     <div class="modal-wrapper">
                         <div class="modal-icon">

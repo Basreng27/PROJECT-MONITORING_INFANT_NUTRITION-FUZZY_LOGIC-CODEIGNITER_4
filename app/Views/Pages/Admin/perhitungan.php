@@ -81,9 +81,9 @@
                             <td><?= $data['status_bb_pb']; ?></td>
                             <td>
                                 <?php if (!empty($data['status_bb_pb'])) { ?>
-                                    <a href="#modalFormEdit<?= $data['id_balita']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"> Detail</i></a>
+                                    <a href="#modalFormEdit<?= $data['id_data']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"> Detail</i></a>
                                 <?php } else { ?>
-                                    <a href="/proses-hitung/<?= $data['idBalita']; ?>" class="on-default edit-row"><i class="fa fa-gear"> Hitung</i></a>
+                                    <a href="/proses-hitung/<?= $data['idData']; ?>" class="on-default edit-row"><i class="fa fa-gear"> Hitung</i></a>
                                 <?php } ?>
                             </td>
                         <?php endforeach ?>
@@ -95,7 +95,7 @@
 </section>
 
 <?php foreach ($data_ as $datas) : ?>
-    <div id="modalFormEdit<?= $datas['id_balita']; ?>" class="modal-block modal-block-primary mfp-hide">
+    <div id="modalFormEdit<?= $datas['id_data']; ?>" class="modal-block modal-block-primary mfp-hide">
         <section class="panel">
             <header class="panel-heading">
                 <h2 class="panel-title">Detail Status Gizi</h2>

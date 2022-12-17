@@ -9,7 +9,8 @@ class Balita_model extends Model
     protected $table = 'balita';
     protected $primaryKey = 'id_balita';
     protected $useTimestamps = false;
-    protected $allowedFields = ['nama_balita', 'id_jk_balita', 'id_ortu', 'umur', 'tinggi', 'berat'];
+    // protected $allowedFields = ['nama_balita', 'id_jk_balita', 'id_ortu', 'umur', 'tinggi', 'berat'];
+    protected $allowedFields = ['nama_balita', 'id_jk_balita', 'id_ortu'];
 
     public function balitaXortuXbalita()
     {
