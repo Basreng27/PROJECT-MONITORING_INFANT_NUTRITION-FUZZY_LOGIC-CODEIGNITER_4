@@ -8,6 +8,7 @@ use App\Models\Pb_U_model;
 use App\Models\Bb_Pb_model;
 use App\Models\Hasil_model;
 use App\Models\Data_model;
+// use FuzzyWuzzy\Fuzz;
 
 class Perhitungan extends BaseController
 {
@@ -27,6 +28,27 @@ class Perhitungan extends BaseController
         $this->Hasil_Model = new Hasil_model();
         $this->DataModel = new Data_model();
     }
+
+    // public function calculate()
+    // {
+    //     // Load library fuzzy wuzzy
+    //     $this->load->library('fuzzywuzzy');
+    //     $fuzzy = Fuzz::weightedRatio;
+    //     $hitung =
+    //     //     // Masukkan data yang akan digunakan dalam perhitungan gizi
+    //     //     // seperti berat badan, tinggi badan, dan usia anak
+    //     //     $data = [
+    //     //         'weight' => 50,
+    //     //         'height' => 150,
+    //     //         'age' => 7
+    //     //     ];
+
+    //     // $childModel = new ChildModel();
+    //     // $nutritionCategory = $childModel->calculateNutrition($data);
+
+    //     // // Tampilkan hasil perhitungan gizi anak
+    //     // echo $nutritionCategory;
+    // }
 
     public function prosesHitung($id_data)
     {

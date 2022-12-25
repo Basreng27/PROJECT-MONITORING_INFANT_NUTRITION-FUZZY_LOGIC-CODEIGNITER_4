@@ -179,7 +179,14 @@
                                 <li class="nav">
                                     <a href="/perhitungan">
                                         <i class="fa fa-reddit" aria-hidden="true"></i>
-                                        <span>Perhitungan</span>
+                                        <span>Perhitungan Tabel Antropologi</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav">
+                                    <a href="/perhitungan-fuzzy">
+                                        <i class="fa fa-reddit" aria-hidden="true"></i>
+                                        <span>Perhitungan Fuzzy Logic</span>
                                     </a>
                                 </li>
 

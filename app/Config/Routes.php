@@ -58,9 +58,11 @@ $routes->get('/tinggi-badan', 'Admin::tinggiBadan');
 $routes->post('/proses-add-tinggi', 'MasterData\Tinggi::prosesAddTinggi');
 $routes->post('/proses-update-tinggi', 'MasterData\Tinggi::prosesUpdateTinggi');
 $routes->delete('/delete-tinggi/(:num)', 'MasterData\Tinggi::deleteTinggi/$1');
-// perhitungan
+// perhitungan antropologi
 $routes->get('/perhitungan', 'Admin::perhitungan');
 $routes->get('/proses-hitung/(:num)', 'Perhitungan::prosesHitung/$1');
+// perhitungan fuzzy
+$routes->get('/perhitungan-fuzzy', 'Admin::perhitunganFuzzy');
 // bb-u
 $routes->get('/bb-u/(:num)', 'Admin::BbU/$1');
 $routes->get('/v_bb-u', 'Admin::VBbU');

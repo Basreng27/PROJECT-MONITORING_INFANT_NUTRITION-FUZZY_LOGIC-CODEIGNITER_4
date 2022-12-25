@@ -140,6 +140,21 @@ class Admin extends BaseController
         return view('Pages/Admin/perhitungan', $data);
     }
 
+    public function perhitunganFuzzy()
+    {
+        if (session()->get('stat') != 'login-monitoring') {
+            return redirect('/');
+        }
+
+        $data = [
+            'validation' => \Config\Services::validation(),
+            // 'data_' => $this->BalitaModel->balitaXortuXbalitaXhasil()
+            'data_' => $this->DataModel->vHitung()
+        ];
+
+        return view('Pages/Admin/perhitungan_fuzzy', $data);
+    }
+
     public function VBbU()
     {
         if (session()->get('stat') != 'login-monitoring') {
