@@ -12,6 +12,8 @@ use App\Models\Bb_U_model;
 use App\Models\Pb_U_model;
 use App\Models\Bb_Pb_model;
 use App\Models\Data_model;
+use App\Models\Visi;
+use App\Models\Misi;
 
 class Admin extends BaseController
 {
@@ -25,6 +27,8 @@ class Admin extends BaseController
     protected $Pb_UModel;
     protected $Bb_PbModel;
     protected $DataModel;
+    protected $Visi;
+    protected $Misi;
 
     public function __construct()
     {
@@ -38,6 +42,8 @@ class Admin extends BaseController
         $this->Pb_UModel = new Pb_U_model();
         $this->Bb_PbModel = new Bb_Pb_model();
         $this->DataModel = new Data_model();
+        $this->Visi = new Visi();
+        $this->Misi = new Misi();
     }
 
     public function index()
@@ -48,7 +54,9 @@ class Admin extends BaseController
 
         $data = [
             'data_ortu' => $this->OrtuModel->countAllResults(),
-            'data_balita' => $this->BalitaModel->countAllResults()
+            'data_balita' => $this->BalitaModel->countAllResults(),
+            'visi' => $this->Visi->findAll(),
+            'misi' => $this->Misi->findAll()
         ];
 
         return view('Pages/Admin/home', $data);

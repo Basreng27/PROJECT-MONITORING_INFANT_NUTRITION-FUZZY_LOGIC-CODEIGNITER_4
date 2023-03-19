@@ -64,6 +64,33 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <h3 class="tittle text-center">Visi</h3>
+                    <hr>
+                    <?php $nov = 1;
+                    foreach ($visi as $v) : ?>
+                        <h4 class="ml-xlg">
+                            <?= $nov++ . '. ' . $v['visi']; ?>
+                        </h4>
+                    <?php endforeach ?>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <h3 class="tittle text-center">Misi</h3>
+                    <hr>
+                    <?php $nom = 1;
+                    foreach ($misi as $m) : ?>
+                        <h4 class="ml-xlg">
+                            <?= $nom++ . '. ' . $m['misi']; ?>
+                        </h4>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        </section>
+    </div>
     <!-- end: page -->
 </section>
 
