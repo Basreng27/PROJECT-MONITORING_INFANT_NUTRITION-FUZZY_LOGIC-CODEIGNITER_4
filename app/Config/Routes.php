@@ -78,6 +78,8 @@ $routes->get('/visi', 'VisiMisi\VisiController::index');
 $routes->post('/save-visi', 'VisiMisi\VisiController::store');
 $routes->delete('/delete-visi/(:num)', 'VisiMisi\VisiController::delete/$1');
 $routes->get('/misi', 'VisiMisi\MisiController::index');
+$routes->post('/save-misi', 'VisiMisi\MisiController::store');
+$routes->delete('/delete-misi/(:num)', 'VisiMisi\MisiController::delete/$1');
 
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
