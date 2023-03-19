@@ -17,10 +17,36 @@ class Ortu extends BaseController
     public function prosesAddOrtu()
     {
         if (!$this->validate([
+            'nik' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'numeric' => '{field} harus berupa angka',
+                ]
+            ],
             'nama_ortu' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'pekerjaan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'no_telpon' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'numeric' => '{field} harus berupa angka',
                 ]
             ]
         ])) {
@@ -29,8 +55,12 @@ class Ortu extends BaseController
         }
 
         $this->OrtuModel->save([
+            'nik' => $this->request->getVar('nik'),
             'nama_ortu' => $this->request->getVar('nama_ortu'),
-            'jk_ortu' => $this->request->getVar('jk_ortu')
+            'id_jk_ortu' => $this->request->getVar('id_jk_ortu'),
+            'alamat' => $this->request->getVar('alamat'),
+            'pekerjaan' => $this->request->getVar('pekerjaan'),
+            'no_telpon' => $this->request->getVar('no_telpon')
         ]);
 
         session()->setFlashdata('berhasil', 'Data berhasil ditambahkan');
@@ -40,10 +70,36 @@ class Ortu extends BaseController
     public function prosesUpdateOrtu()
     {
         if (!$this->validate([
+            'nik' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'numeric' => '{field} harus berupa angka',
+                ]
+            ],
             'nama_ortu' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'pekerjaan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'no_telpon' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'numeric' => '{field} harus diisi'
                 ]
             ]
         ])) {
@@ -53,8 +109,12 @@ class Ortu extends BaseController
 
         $this->OrtuModel->save([
             'id_ortu' => $this->request->getVar('id_ortu'),
+            'nik' => $this->request->getVar('nik'),
             'nama_ortu' => $this->request->getVar('nama_ortu'),
-            'jk_ortu' => $this->request->getVar('jk_ortu')
+            'id_jk_ortu' => $this->request->getVar('id_jk_ortu'),
+            'alamat' => $this->request->getVar('alamat'),
+            'pekerjaan' => $this->request->getVar('pekerjaan'),
+            'no_telpon' => $this->request->getVar('no_telpon')
         ]);
 
         session()->setFlashdata('berhasil', 'Data berhasil ditambahkan');

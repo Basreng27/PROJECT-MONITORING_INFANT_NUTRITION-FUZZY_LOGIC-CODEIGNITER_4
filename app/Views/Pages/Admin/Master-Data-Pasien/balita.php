@@ -7,6 +7,27 @@
         <h2>Balita</h2>
     </header>
 
+    <?php if (session()->getFlashdata('gagal')) { ?>
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            Data Balita <strong>gagal</strong> ditambahkan
+        </div>
+    <?php } ?>
+
+    <?php if (session()->getFlashdata('berhasil')) { ?>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            Data Balita <strong>berhasil</strong> ditambahkan
+        </div>
+    <?php } ?>
+
+    <?php if (session()->getFlashdata('berhasil-delete')) { ?>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            Data Balita <strong>berhasil</strong> didelete
+        </div>
+    <?php } ?>
+
     <!-- start: page -->
     <section class="panel">
         <header class="panel-heading">
@@ -26,26 +47,25 @@
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
                         <th>Orang Tua</th>
-                        <th>Umur</th>
-                        <th>Berat Badan</th>
-                        <th>Tinggi Badan</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Ucup</td>
-                        <td>Laki Laki</td>
-                        <td>Udin</td>
-                        <td>2 Bulan</td>
-                        <td>72 Cm</td>
-                        <td>23 Kg</td>
-                        <td>
-                            <a href="#modalFormEdit" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
-                            <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-                        </td>
-                    </tr>
+                    <?php
+                    $no = 1;
+                    foreach ($data_balita as $balita) : ?>
+                        <tr>
+                            <td><?= $no++; ?></td>
+                            <td><?= $balita['nama_balita']; ?></td>
+                            <td><?= $balita['jk']; ?></td>
+                            <td><?= $balita['nama_ortu']; ?></td>
+                            <td>
+                                <a href="#modalFormEdit<?= $balita['id_balita']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                ||
+                                <a href="#modalDanger<?= $balita['id_balita']; ?>" class="modal-with-form on-default"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>
@@ -58,25 +78,27 @@
         <header class="panel-heading">
             <h2 class="panel-title">Tambah Data Balita</h2>
         </header>
-        <div class="panel-body">
-            <form id="demo-form" class="form-horizontal mb-lg" novalidate="novalidate">
+        <form id="demo-form" action="/proses-add-balita" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
+            <div class="panel-body">
                 <div class="form-group mt-lg">
                     <label class="col-sm-3 control-label">Nama</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" placeholder="Masukan Nama" required />
+                        <input type="text" class="form-control <?= ($validation->hasError('nama_balita')) ? 'is-invalid' : ''; ?>" value="<?= old('nama_balita'); ?>" name="nama_balita" placeholder="Masukan Nama" required />
+                        <div class="invalid-feedback"><?= $validation->getError('nama_balita'); ?></div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
                     <div class="col-md-6">
-                        <select class="form-control mb-md">
-                            <option>Laki-Laki</option>
-                            <option>Perempuan</option>
+                        <select class="form-control mb-md" name="id_jk_balita">
+                            <option value="1-Laki">Laki-Laki</option>
+                            <option value="2">Perempuan</option>
                         </select>
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <!-- <div class="form-group">
                     <label class="col-md-3 control-label">Nama Orang Tua</label>
                     <div class="col-md-6">
@@ -84,7 +106,18 @@
                             <optgroup label="Nama Orang Tua">
                                 <option value="AK">Udin</option>
                             </optgroup>
+=======
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Orang Tua</label>
+                    <div class="col-md-6">
+                        <select name="id_ortu" class="form-control">
+                            <option value="">===== Pilih Orang Tua =====</option>
+                            <?php foreach ($data_ortu as $ortu) : ?>
+                                <option value="<?= $ortu['id_ortu']; ?>"><?= $ortu['nama_ortu']; ?></option>
+                            <?php endforeach ?>
+>>>>>>> err
                         </select>
+                        <div class="invalid-feedback"><?= $validation->getError('id_ortu'); ?></div>
                     </div>
                 </div> -->
                 <div class="form-group">
@@ -98,40 +131,20 @@
                         </select>
                     </div>
                 </div>
-
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Umur</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control" placeholder="Masukan Umur Dalam hitungan Bulan" required />
-                    </div>
-                </div>
-
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Tinggi</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control" placeholder="Masukan Tinggi Dalam hitungan Cm" required />
-                    </div>
-                </div>
-
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Berat</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control" placeholder="Masukan Berat Dalam hitungan Kg" required />
-                    </div>
-                </div>
-            </form>
-        </div>
-        <footer class="panel-footer">
-            <div class="row">
-                <div class="col-md-12 text-right">
-                    <button class="btn btn-default modal-dismiss">Cancel</button>
-                    <button class="btn btn-primary modal-confirm">Save</button>
-                </div>
             </div>
-        </footer>
+            <footer class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-default modal-dismiss">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </footer>
+        </form>
     </section>
 </div>
 
+<<<<<<< HEAD
 <div id="modalFormEdit" class="modal-block modal-block-primary mfp-hide">
     <section class="panel">
         <header class="panel-heading">
@@ -143,61 +156,95 @@
                     <label class="col-sm-3 control-label">Nama</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" placeholder="Masukan Nama" required />
+=======
+<?php foreach ($data_balita as $balitas) : ?>
+    <div id="modalFormEdit<?= $balitas['id_balita']; ?>" class="modal-block modal-block-primary mfp-hide">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Edit Data Balita</h2>
+            </header>
+            <form id="demo-form" action="/proses-update-balita" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
+                <div class="panel-body">
+                    <input type="hidden" name="id_balita" value="<?= $balitas['id_balita']; ?>">
+
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">Nama</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control <?= ($validation->hasError('nama_balita')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['nama_balita']; ?>" name="nama_balita" placeholder="Masukan Nama" required />
+                            <div class="invalid-feedback"><?= $validation->getError('nama_balita'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
+                        <div class="col-md-6">
+                            <select class="form-control mb-md" name="id_jk_balita">
+                                <option value="<?= $balitas['id_jk_balita']; ?>"><?= $balitas['jk']; ?></option>
+                                <option value="1">Laki-Laki</option>
+                                <option value="2">Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Orang Tua</label>
+                        <div class="col-md-6">
+                            <select name="id_ortu" class="form-control">
+                                <option value="<?= $balitas['id_ortu']; ?>"><?= $balitas['nama_ortu']; ?></option>
+                                <?php foreach ($data_ortu as $ortu) : ?>
+                                    <option value="<?= $ortu['id_ortu']; ?>"><?= $ortu['nama_ortu']; ?></option>
+                                <?php endforeach ?>
+                            </select>
+                            <div class="invalid-feedback"><?= $validation->getError('id_ortu'); ?></div>
+                        </div>
+>>>>>>> err
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
-                    <div class="col-md-6">
-                        <select class="form-control mb-md">
-                            <option>Laki-Laki</option>
-                            <option>Perempuan</option>
-                        </select>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Nama Orang Tua</label>
-                    <div class="col-md-6">
-                        <select data-plugin-selectTwo class="form-control populate">
-                            <optgroup label="Nama Orang Tua">
-                                <option value="AK">Udin</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Umur</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control" placeholder="Masukan Umur Dalam hitungan Bulan" required />
-                    </div>
-                </div>
-
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Tinggi</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control" placeholder="Masukan Tinggi Dalam hitungan Cm" required />
-                    </div>
-                </div>
-
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Berat</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control" placeholder="Masukan Berat Dalam hitungan Kg" required />
-                    </div>
-                </div>
+                </footer>
             </form>
-        </div>
-        <footer class="panel-footer">
-            <div class="row">
-                <div class="col-md-12 text-right">
-                    <button class="btn btn-default modal-dismiss">Cancel</button>
-                    <button class="btn btn-primary modal-confirm">Save</button>
+            </footer>
+        </section>
+    </div>
+<?php endforeach ?>
+
+<?php foreach ($data_balita as $balitadel) : ?>
+    <div id="modalDanger<?= $balitadel['id_balita']; ?>" class="modal-block modal-block-danger mfp-hide">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Delete Data!</h2>
+            </header>
+            <form id="demo-form" action="/delete-balita/<?= $balitadel['id_balita']; ?>" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
+                <div class="panel-body">
+                    <div class="modal-wrapper">
+                        <div class="modal-icon">
+                            <i class="fa fa-times-circle"></i>
+                        </div>
+                        <div class="modal-text">
+                            <h4>Delete</h4>
+                            <p>Anda Yakin akan menghapus data balita <?= $balitadel['nama_balita']; ?>.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </footer>
-    </section>
-</div>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button class="btn btn-default modal-dismiss">Cancel</button>
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </footer>
+            </form>
+        </section>
+    </div>
+<?php endforeach ?>
 
 <?= $this->endSection(); ?>

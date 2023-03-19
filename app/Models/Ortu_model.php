@@ -9,5 +9,10 @@ class Ortu_model extends Model
     protected $table = 'ortu';
     protected $primaryKey = 'id_ortu';
     protected $useTimestamps = false;
-    protected $allowedFields = ['nama_ortu', 'jk_ortu'];
+    protected $allowedFields = ['nama_ortu', 'id_jk_ortu', 'alamat', 'pekerjaan', 'no_telpon', 'nik'];
+
+    public function ortuXjk()
+    {
+        return $this->join('jk', 'jk.id_jk = ortu.id_jk_ortu')->findAll();
+    }
 }

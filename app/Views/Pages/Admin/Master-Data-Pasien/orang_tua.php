@@ -21,6 +21,13 @@
         </div>
     <?php } ?>
 
+    <?php if (session()->getFlashdata('berhasil-delete')) { ?>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            Data Orag Tua <strong>berhasil</strong> didelete
+        </div>
+    <?php } ?>
+
     <!-- start: page -->
     <section class="panel">
         <header class="panel-heading">
@@ -37,7 +44,11 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>NIK</th>
                         <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Pekerjaan</th>
+                        <th>No Telpon</th>
                         <th>Jenis Kelamin</th>
                         <th>Action</th>
                     </tr>
@@ -48,8 +59,12 @@
                     foreach ($data_ortu as $ortu) : ?>
                         <tr>
                             <td><?= $no++; ?></td>
+                            <td><?= $ortu['nik']; ?></td>
                             <td><?= $ortu['nama_ortu']; ?></td>
-                            <td><?= $ortu['jk_ortu']; ?></td>
+                            <td><?= $ortu['alamat']; ?></td>
+                            <td><?= $ortu['pekerjaan']; ?></td>
+                            <td><?= $ortu['no_telpon']; ?></td>
+                            <td><?= $ortu['jk']; ?></td>
                             <td>
                                 <a href="#modalFormEdit<?= $ortu['id_ortu']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
                                 ||
@@ -73,6 +88,14 @@
         <form id="demo-form" action="/proses-add-orang-tua" class="form-horizontal mb-lg" method="POST" novalidate="novalidate">
             <div class="panel-body">
                 <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">NIK</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="nik" class="form-control <?= ($validation->hasError('nik')) ? 'is-invalid' : ''; ?>" value="<?= old('nik'); ?>" required />
+                        <div class="invalid-feedback"><?= $validation->getError('nik'); ?></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-lg">
                     <label class="col-sm-3 control-label">Nama</label>
                     <div class="col-sm-9">
                         <input type="text" name="nama_ortu" class="form-control <?= ($validation->hasError('nama_ortu')) ? 'is-invalid' : ''; ?>" value="<?= old('nama_ortu'); ?>" required />
@@ -80,12 +103,36 @@
                     </div>
                 </div>
 
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">Alamat</label>
+                    <div class="col-sm-9">
+                        <textarea type="text" name="alamat" class="form-control <?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" required><?= old('alamat'); ?></textarea>
+                        <div class="invalid-feedback"><?= $validation->getError('alamat'); ?></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">Pekerjaan</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="pekerjaan" class="form-control <?= ($validation->hasError('pekerjaan')) ? 'is-invalid' : ''; ?>" value="<?= old('pekerjaan'); ?>" required />
+                        <div class="invalid-feedback"><?= $validation->getError('pekerjaan'); ?></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">No Telpon</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="no_telpon" class="form-control <?= ($validation->hasError('no_telpon')) ? 'is-invalid' : ''; ?>" value="<?= old('no_telpon'); ?>" required />
+                        <div class="invalid-feedback"><?= $validation->getError('no_telpon'); ?></div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
                     <div class="col-md-6">
-                        <select class="form-control mb-md" name="jk_ortu">
-                            <option value="Laki-Laki">Laki-Laki</option>
-                            <option value="Perempuan">Perempuan</option>
+                        <select class="form-control mb-md" name="id_jk_ortu">
+                            <option value="1">Laki-Laki</option>
+                            <option value="2">Perempuan</option>
                         </select>
                     </div>
                 </div>
@@ -113,6 +160,14 @@
                     <input type="hidden" name="id_ortu" value="<?= $ortus['id_ortu']; ?>">
 
                     <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">NIK</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="nik" class="form-control <?= ($validation->hasError('nik')) ? 'is-invalid' : ''; ?>" value="<?= $ortus['nik'] ?>" required />
+                            <div class="invalid-feedback"><?= $validation->getError('nik'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
                         <label class="col-sm-3 control-label">Nama</label>
                         <div class="col-sm-9">
                             <input type="text" name="nama_ortu" class="form-control <?= ($validation->hasError('nama_ortu')) ? 'is-invalid' : ''; ?>" value="<?= $ortus['nama_ortu'] ?>" required />
@@ -120,13 +175,37 @@
                         </div>
                     </div>
 
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">Alamat</label>
+                        <div class="col-sm-9">
+                            <textarea type="text" name="alamat" class="form-control <?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" required><?= $ortus['alamat'] ?></textarea>
+                            <div class="invalid-feedback"><?= $validation->getError('alamat'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">Pekerjaan</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="pekerjaan" class="form-control <?= ($validation->hasError('pekerjaan')) ? 'is-invalid' : ''; ?>" value="<?= $ortus['pekerjaan'] ?>" required />
+                            <div class="invalid-feedback"><?= $validation->getError('pekerjaan'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">No Telpon</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="no_telpon" class="form-control <?= ($validation->hasError('no_telpon')) ? 'is-invalid' : ''; ?>" value="<?= $ortus['no_telpon'] ?>" required />
+                            <div class="invalid-feedback"><?= $validation->getError('no_telpon'); ?></div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
                         <div class="col-md-6">
-                            <select class="form-control mb-md" name="jk_ortu">
-                                <option value="<?= $ortus['jk_ortu']; ?>"><?= $ortus['jk_ortu']; ?></option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                <option value="Perempuan">Perempuan</option>
+                            <select class="form-control mb-md" name="id_jk_ortu">
+                                <option value="<?= $ortus['id_jk_ortu']; ?>"><?= $ortus['jk']; ?></option>
+                                <option value="1">Laki-Laki</option>
+                                <option value="2">Perempuan</option>
                             </select>
                         </div>
                     </div>
