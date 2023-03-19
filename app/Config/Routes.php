@@ -58,7 +58,7 @@ $routes->get('/tinggi-badan', 'Admin::tinggiBadan');
 $routes->post('/proses-add-tinggi', 'MasterData\Tinggi::prosesAddTinggi');
 $routes->post('/proses-update-tinggi', 'MasterData\Tinggi::prosesUpdateTinggi');
 $routes->delete('/delete-tinggi/(:num)', 'MasterData\Tinggi::deleteTinggi/$1');
-// perhitungan antropologi
+// perhitungan Antropometri
 $routes->get('/perhitungan', 'Admin::perhitungan');
 $routes->get('/proses-hitung/(:num)', 'Perhitungan::prosesHitung/$1');
 // perhitungan fuzzy
@@ -72,6 +72,12 @@ $routes->get('/v_pb-u', 'Admin::VPbU');
 // bb-pb
 $routes->get('/bb-pb/(:num)', 'Admin::BbPb/$1');
 $routes->get('/v_bb-pb', 'Admin::VBbPb');
+// visi misi
+// visi
+$routes->get('/visi', 'VisiMisi\VisiController::index');
+$routes->post('/save-visi', 'VisiMisi\VisiController::store');
+$routes->delete('/delete-visi/(:num)', 'VisiMisi\VisiController::delete/$1');
+$routes->get('/misi', 'VisiMisi\MisiController::index');
 
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';

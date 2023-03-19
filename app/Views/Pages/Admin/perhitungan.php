@@ -4,7 +4,7 @@
 
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>Perhitungan Antropologi</h2>
+        <h2>Perhitungan Antropometri</h2>
     </header>
 
     <?php if (session()->getFlashdata('berhasil')) { ?>
@@ -49,7 +49,7 @@
                 <a href="#" class="fa fa-times"></a>
             </div>
 
-            <h2 class="panel-title">Data Perhitungan Antropologi</h2>
+            <h2 class="panel-title">Data Perhitungan Antropometri</h2>
         </header>
         <div class="panel-body">
             <table class="table table-bordered table-striped mb-none" id="datatable-tabletools" data-swf-path="assets/vendor/jquery-datatables/extras/TableTools/swf/copy_csv_xls_pdf.swf">

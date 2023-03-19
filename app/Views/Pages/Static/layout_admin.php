@@ -120,27 +120,8 @@
                                 <li class="nav">
                                     <a href="/data">
                                         <i class="fa fa-copy" aria-hidden="true"></i>
-                                        <span>Data Antropologi Balita</span>
+                                        <span>Data Antropometri Balita</span>
                                     </a>
-                                </li>
-
-                                <li class="nav-parent">
-                                    <a>
-                                        <i class="fa fa-copy" aria-hidden="true"></i>
-                                        <span>Master Data Pasien</span>
-                                    </a>
-                                    <ul class="nav nav-children">
-                                        <li>
-                                            <a href="/orang-tua">
-                                                Orang Tua
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/balita">
-                                                Balita
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
 
                                 <li class="nav-parent">
@@ -149,29 +130,62 @@
                                         <span>Master Data</span>
                                     </a>
                                     <ul class="nav nav-children">
-                                        <li>
-                                            <a href="/v_bb-u">
-                                                BB/U
+                                        <li class="nav-parent">
+                                            <a>
+                                                <i class="fa fa-copy" aria-hidden="true"></i>
+                                                <span>Master Data Pasien</span>
                                             </a>
-                                            <!-- <a href="/umur">
-                                                Umur
-                                            </a> -->
+                                            <ul class="nav nav-children">
+                                                <li>
+                                                    <a href="/orang-tua">
+                                                        Orang Tua
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/balita">
+                                                        Balita
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="nav-parent">
+                                            <a>
+                                                <i class="fa fa-copy" aria-hidden="true"></i>
+                                                <span>Master Data</span>
+                                            </a>
+                                            <ul class="nav nav-children">
+                                                <li>
+                                                    <a href="/v_bb-u">
+                                                        BB/U
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/v_pb-u">
+                                                        PB/U
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/v_bb-pb">
+                                                        BB/PB
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-parent">
+                                    <a>
+                                        <i class="fa fa-copy" aria-hidden="true"></i>
+                                        <span>Visi Misi</span>
+                                    </a>
+                                    <ul class="nav nav-children">
+                                        <li>
+                                            <a href="/visi">Visi</a>
                                         </li>
                                         <li>
-                                            <a href="/v_pb-u">
-                                                PB/U
-                                            </a>
-                                            <!-- <a href="/berat-badan">
-                                                Berat Badan
-                                            </a> -->
-                                        </li>
-                                        <li>
-                                            <a href="/v_bb-pb">
-                                                BB/PB
-                                            </a>
-                                            <!-- <a href="/tinggi-badan">
-                                                Tinggi Badan
-                                            </a> -->
+                                            <a href="/misi">Misi</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -179,7 +193,7 @@
                                 <li class="nav">
                                     <a href="/perhitungan">
                                         <i class="fa fa-reddit" aria-hidden="true"></i>
-                                        <span>Perhitungan Tabel Antropologi</span>
+                                        <span>Perhitungan Tabel Antropometri</span>
                                     </a>
                                 </li>
 

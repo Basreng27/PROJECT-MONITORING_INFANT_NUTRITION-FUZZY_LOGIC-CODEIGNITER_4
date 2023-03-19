@@ -4,27 +4,27 @@
 
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>Data Antropologi Balita</h2>
+        <h2>Data Antropometri Balita</h2>
     </header>
 
     <?php if (session()->getFlashdata('gagal')) { ?>
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            Data Antropologi Balita <strong>gagal</strong> ditambahkan
+            Data Antropometri Balita <strong>gagal</strong> ditambahkan
         </div>
     <?php } ?>
 
     <?php if (session()->getFlashdata('berhasil')) { ?>
         <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            Data Antropologi Balita <strong>berhasil</strong> ditambahkan
+            Data Antropometri Balita <strong>berhasil</strong> ditambahkan
         </div>
     <?php } ?>
 
     <?php if (session()->getFlashdata('berhasil-delete')) { ?>
         <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            Data Antropologi Balita <strong>berhasil</strong> didelete
+            Data Antropometri Balita <strong>berhasil</strong> didelete
         </div>
     <?php } ?>
 
@@ -36,7 +36,7 @@
                 <a href="#" class="fa fa-times"></a>
             </div>
 
-            <h2 class="panel-title">Data Antropologi Balita</h2>
+            <h2 class="panel-title">Data Antropometri Balita</h2>
         </header>
         <div class="panel-body">
             <a class="modal-with-form btn btn-default" href="#modalForm">Add <i class="fa fa-plus"></i></a>
@@ -82,7 +82,7 @@
 <div id="modalForm" class="modal-block modal-block-primary mfp-hide">
     <section class="panel">
         <header class="panel-heading">
-            <h2 class="panel-title">Tambah Data Antropologi Balita</h2>
+            <h2 class="panel-title">Tambah Data Antropometri Balita</h2>
         </header>
         <form id="demo-form" action="/proses-add-data" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
             <div class="panel-body">
@@ -162,7 +162,7 @@
                         </div>
                         <div class="modal-text">
                             <h4>Delete</h4>
-                            <p>Anda Yakin akan menghapus data antropologi balita <?= $datadel['nama_balita']; ?>.</p>
+                            <p>Anda Yakin akan menghapus data Antropometri balita <?= $datadel['nama_balita']; ?>.</p>
                         </div>
                     </div>
                 </div>
