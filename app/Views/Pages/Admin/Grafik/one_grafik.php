@@ -47,8 +47,6 @@
                                                     ],
                                                     color: "#0088cc"
                                                 }];
-
-                                                // See: assets/javascripts/dashboard/examples.dashboard.js for more settings.
                                             </script>
 
                                             <!-- Flot: Sales JSOFT Drupal -->

@@ -44,6 +44,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>NIK</th>
                         <th>Nama</th>
                         <th>Alamat</th>
                         <th>Pekerjaan</th>
@@ -58,6 +59,7 @@
                     foreach ($data_ortu as $ortu) : ?>
                         <tr>
                             <td><?= $no++; ?></td>
+                            <td><?= $ortu['nik']; ?></td>
                             <td><?= $ortu['nama_ortu']; ?></td>
                             <td><?= $ortu['alamat']; ?></td>
                             <td><?= $ortu['pekerjaan']; ?></td>
@@ -85,6 +87,14 @@
         </header>
         <form id="demo-form" action="/proses-add-orang-tua" class="form-horizontal mb-lg" method="POST" novalidate="novalidate">
             <div class="panel-body">
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">NIK</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="nik" class="form-control <?= ($validation->hasError('nik')) ? 'is-invalid' : ''; ?>" value="<?= old('nik'); ?>" required />
+                        <div class="invalid-feedback"><?= $validation->getError('nik'); ?></div>
+                    </div>
+                </div>
+
                 <div class="form-group mt-lg">
                     <label class="col-sm-3 control-label">Nama</label>
                     <div class="col-sm-9">
@@ -148,6 +158,14 @@
             <form id="demo-form" action="/proses-update-orang-tua" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
                 <div class="panel-body">
                     <input type="hidden" name="id_ortu" value="<?= $ortus['id_ortu']; ?>">
+
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">NIK</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="nik" class="form-control <?= ($validation->hasError('nik')) ? 'is-invalid' : ''; ?>" value="<?= $ortus['nik'] ?>" required />
+                            <div class="invalid-feedback"><?= $validation->getError('nik'); ?></div>
+                        </div>
+                    </div>
 
                     <div class="form-group mt-lg">
                         <label class="col-sm-3 control-label">Nama</label>

@@ -41,7 +41,7 @@
     <section class="body-sign">
         <div class="center-sign">
             <a href="/" class="logo pull-left">
-                <img src="#" height="54" alt="Logo" />
+                <img src="<?= base_url() ?>/logo/py.png" height="54" alt="Logo" />
             </a>
 
             <div class="panel panel-sign">

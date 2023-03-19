@@ -17,6 +17,13 @@ class Ortu extends BaseController
     public function prosesAddOrtu()
     {
         if (!$this->validate([
+            'nik' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'numeric' => '{field} harus berupa angka',
+                ]
+            ],
             'nama_ortu' => [
                 'rules' => 'required',
                 'errors' => [
@@ -38,7 +45,8 @@ class Ortu extends BaseController
             'no_telpon' => [
                 'rules' => 'required|numeric',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => '{field} harus diisi',
+                    'numeric' => '{field} harus berupa angka',
                 ]
             ]
         ])) {
@@ -47,6 +55,7 @@ class Ortu extends BaseController
         }
 
         $this->OrtuModel->save([
+            'nik' => $this->request->getVar('nik'),
             'nama_ortu' => $this->request->getVar('nama_ortu'),
             'id_jk_ortu' => $this->request->getVar('id_jk_ortu'),
             'alamat' => $this->request->getVar('alamat'),
@@ -61,6 +70,13 @@ class Ortu extends BaseController
     public function prosesUpdateOrtu()
     {
         if (!$this->validate([
+            'nik' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'numeric' => '{field} harus berupa angka',
+                ]
+            ],
             'nama_ortu' => [
                 'rules' => 'required',
                 'errors' => [
@@ -82,7 +98,8 @@ class Ortu extends BaseController
             'no_telpon' => [
                 'rules' => 'required|numeric',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => '{field} harus diisi',
+                    'numeric' => '{field} harus diisi'
                 ]
             ]
         ])) {
@@ -92,6 +109,7 @@ class Ortu extends BaseController
 
         $this->OrtuModel->save([
             'id_ortu' => $this->request->getVar('id_ortu'),
+            'nik' => $this->request->getVar('nik'),
             'nama_ortu' => $this->request->getVar('nama_ortu'),
             'id_jk_ortu' => $this->request->getVar('id_jk_ortu'),
             'alamat' => $this->request->getVar('alamat'),

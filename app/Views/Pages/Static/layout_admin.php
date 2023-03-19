@@ -59,7 +59,7 @@
         <header class="header">
             <div class="logo-container">
                 <a href="/home" class="logo">
-                    <img src="#" height="35" alt="Logo" />
+                    <img src="<?= base_url() ?>/logo/py.png" height="35" alt="Logo" />
                 </a>
 
                 <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
@@ -183,12 +183,12 @@
                                     </a>
                                 </li>
 
-                                <li class="nav">
+                                <!-- <li class="nav">
                                     <a href="/perhitungan-fuzzy">
                                         <i class="fa fa-reddit" aria-hidden="true"></i>
                                         <span>Perhitungan Fuzzy Logic</span>
                                     </a>
-                                </li>
+                                </li> -->
 
                                 <li class="nav">
                                     <a href="/grafik">
