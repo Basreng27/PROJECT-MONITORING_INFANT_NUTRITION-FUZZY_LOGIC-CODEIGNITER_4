@@ -15,8 +15,11 @@ $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 
+// User
+$routes->get('/', 'User::index');
+
 // login
-$routes->get('/', 'Login::index');
+$routes->get('/login', 'Login::index');
 $routes->get('/logout', 'Login::logout');
 $routes->post('/proses-login', 'Login::prosesLogin');
 

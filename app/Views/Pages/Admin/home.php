@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
         <section class="panel">
             <div class="panel-body">
                 <div class="col-md-12 col-lg-6 col-xl-6">
@@ -90,8 +90,7 @@
                 </div>
             </div>
         </section>
-    </div>
-    <!-- end: page -->
+    </div> -->
 </section>
 
 <?= $this->endSection(); ?>
