@@ -7,7 +7,6 @@
         <h2>Grafik Balita</h2>
     </header>
 
-    <!-- start: page -->
     <section class="panel">
         <header class="panel-heading">
             <div class="panel-actions">
@@ -17,6 +16,7 @@
 
             <h2 class="panel-title">Grafik Balita <?= $balita['nama_balita']; ?></h2>
         </header>
+
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-6 col-lg-12 col-xl-6">
@@ -36,35 +36,34 @@
                                         </h2>
 
                                         <div id="salesSelectorItems" class="chart-data-selector-items mt-sm">
-                                            <!-- Flot: Sales JSOFT Admin -->
                                             <div class="chart chart-sm" data-sales-rel="BB/U" id="flotDashSales1" class="chart-active"></div>
+
                                             <script>
                                                 var flotDashSales1Data = [{
                                                     data: [
-                                                        <?php
-                                                        foreach ($totalData as $data) { ?>[<?= $data['umur']; ?>, <?= $data['berat']; ?>],
+                                                        <?php foreach ($totalData as $data) { ?>[
+                                                                <?= $data['umur']; ?>, <?= $data['berat']; ?>
+                                                            ],
                                                         <?php }; ?>
                                                     ],
                                                     color: "#0088cc"
                                                 }];
                                             </script>
 
-                                            <!-- Flot: Sales JSOFT Drupal -->
                                             <div class="chart chart-sm" data-sales-rel="PB/U" id="flotDashSales2" class="chart-hidden"></div>
+
                                             <script>
                                                 var flotDashSales2Data = [{
                                                     data: [
-                                                        <?php
-                                                        foreach ($totalData as $data2) { ?>[<?= $data2['umur']; ?>, <?= $data2['tinggi']; ?>],
+                                                        <?php foreach ($totalData as $data2) { ?>[
+                                                                <?= $data2['umur']; ?>, <?= $data2['tinggi']; ?>
+                                                            ],
                                                         <?php }; ?>
                                                     ],
                                                     color: "#2baab1"
                                                 }];
-
-                                                // See: assets/javascripts/dashboard/examples.dashboard.js for more settings.
                                             </script>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -74,6 +73,5 @@
             </div>
         </div>
     </section>
-    <!-- end: page -->
 </section>
 <?= $this->endSection(); ?>
