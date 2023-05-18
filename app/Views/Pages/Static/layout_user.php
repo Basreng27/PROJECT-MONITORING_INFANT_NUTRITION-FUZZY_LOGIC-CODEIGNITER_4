@@ -73,12 +73,14 @@
                         <hr>
                         <br>
 
-                        <ul>
-                            <?php foreach ($visi as $v) : ?>
+                        <ul style="font-size: large;">
+                            <!-- <?php foreach ($visi as $v) : ?>
                                 <li>
                                     <h4 style="color: black;"><?= $v['visi']; ?></h4>
                                 </li>
-                            <?php endforeach ?>
+                            <?php endforeach ?> -->
+
+                            Menjadikan masyarakat sehat, sejahtera, dan mandiri
                         </ul>
                     </div>
                 </div>
@@ -92,12 +94,21 @@
                         <hr>
                         <br>
 
-                        <ul>
-                            <?php foreach ($misi as $m) : ?>
+                        <ul style="font-size: large; text-align: left;">
+                            <!-- <?php foreach ($misi as $m) : ?>
                                 <li>
                                     <h4 style="color: black;"><?= $m['misi']; ?></h4>
                                 </li>
-                            <?php endforeach ?>
+                            <?php endforeach ?> -->
+
+                            <ol>1. Lebih mendekatkan lelayanan kesehatan masyarakat bagi warga sekitar </ol>
+                            <ol>2. Meningkatkan kehadiran balita datang dan menimbang di posyandu </ol>
+                            <ol>3. Menggalakan pemberian ASI ekslusif </ol>
+                            <ol>4. Meningkatkan kesadaran ibu memeriksakan kehamilan </ol>
+                            <ol>5. Pemberian PMT dan penyuluhan </ol>
+                            <ol>6. Meningkatkan kerjasama masyarakat agar hidup bersih dan sehat </ol>
+                            <ol>7. Meningkatkan kerjasama dan kemitraan dengan masyarakat disektor terkait </ol>
+
                         </ul>
                     </div>
                 </div>

@@ -175,7 +175,7 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-parent">
+                                <!-- <li class="nav-parent">
                                     <a>
                                         <i class="fa fa-copy" aria-hidden="true"></i>
                                         <span>Visi Misi</span>
@@ -188,7 +188,7 @@
                                             <a href="/misi">Misi</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> -->
 
                                 <li class="nav">
                                     <a href="/perhitungan">

@@ -101,10 +101,10 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label">Orang Tua</label>
                     <div class="col-md-6">
-                        <select name="id_orangtua" class="form-control">
+                        <select name="id_ortu" class="form-control">
                             <option value="">===== Pilih Orang Tua =====</option>
                             <?php foreach ($data_ortu as $ortu) : ?>
-                                <option value="<?= $data_ortu['id_ortu']; ?>"><?= $data_ortu['nama_ortu']; ?></option>
+                                <option value="<?= $ortu['id_ortu']; ?>"><?= $ortu['nama_ortu']; ?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
