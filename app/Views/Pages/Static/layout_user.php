@@ -140,7 +140,7 @@
 
                 <div class="col-lg-12">
                     <div class="copyright-text">
-                        <p>Copyright © RWM 2022. Design: <a href="https://templatemo.com/" target="_blank" title="css templates">TemplateMo</a>
+                        <!-- <p>Copyright © RWM 2022. Design: <a href="https://templatemo.com/" target="_blank" title="css templates">TemplateMo</a> -->
                         </p>
                     </div>
                 </div>
