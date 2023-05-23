@@ -28,13 +28,13 @@ class Login extends BaseController
             'username' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Username harus diisi'
                 ]
             ],
             'password' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Password harus diisi'
                 ]
             ],
         ])) {

@@ -14,6 +14,7 @@ use App\Models\Bb_Pb_model;
 use App\Models\Data_model;
 use App\Models\Visi;
 use App\Models\Misi;
+use App\Models\Footer_User_model;
 
 class Admin extends BaseController
 {
@@ -29,6 +30,7 @@ class Admin extends BaseController
     protected $DataModel;
     protected $Visi;
     protected $Misi;
+    protected $FooterUser;
 
     public function __construct()
     {
@@ -44,6 +46,7 @@ class Admin extends BaseController
         $this->DataModel = new Data_model();
         $this->Visi = new Visi();
         $this->Misi = new Misi();
+        $this->FooterUser = new Footer_User_model();
     }
 
     public function index()
@@ -74,6 +77,20 @@ class Admin extends BaseController
         ];
 
         return view('Pages/Admin/Master-Data-Pasien/orang_tua', $data);
+    }
+
+    public function footerUser()
+    {
+        if (session()->get('stat') != 'login-monitoring') {
+            return redirect('/');
+        }
+
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'data_ortu' => $this->FooterUser->findAll()
+        ];
+
+        return view('Pages/Admin/Setting/footer_user', $data);
     }
 
     public function balita()

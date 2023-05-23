@@ -20,13 +20,13 @@ class Balita extends BaseController
             'nama_balita' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Nama Balita harus diisi'
                 ]
             ],
             'id_ortu' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Orang Tua harus diisi'
                 ]
             ]
         ])) {
@@ -50,13 +50,13 @@ class Balita extends BaseController
             'nama_balita' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Nama Balita harus diisi'
                 ]
             ],
             'id_ortu' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Orang Tua harus diisi'
                 ]
             ]
         ])) {

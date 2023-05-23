@@ -37,25 +37,25 @@ class Data extends BaseController
             'id_balita' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Balita harus diisi'
                 ]
             ],
             'umur' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Umur harus diisi'
                 ]
             ],
             'tinggi' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Tinggi harus diisi'
                 ]
             ],
             'berat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Berat harus diisi'
                 ]
             ]
         ])) {

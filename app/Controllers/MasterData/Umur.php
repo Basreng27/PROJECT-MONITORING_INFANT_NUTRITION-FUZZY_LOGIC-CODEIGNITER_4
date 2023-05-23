@@ -20,13 +20,13 @@ class Umur extends BaseController
             'kategori_umur' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Kategori Umur harus diisi'
                 ]
             ],
             'keterangan_umur' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Keterangan Umur harus diisi'
                 ]
             ]
         ])) {
@@ -49,25 +49,25 @@ class Umur extends BaseController
             'kategori_umur' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Kategori Umur harus diisi'
                 ]
             ],
             'keterangan_umur' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Keterangan Umur harus diisi'
                 ]
             ],
             'umur_dari' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Umur Dari harus diisi'
                 ]
             ],
             'umur_sampai' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Umur Sampai harus diisi'
                 ]
             ],
 

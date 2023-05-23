@@ -37,7 +37,7 @@ class VisiController extends BaseController
         if (!$this->validate([
             'visi' => [
                 'rules' => 'required',
-                'errors' => ['required' => '{field} Harus diisi']
+                'errors' => ['required' => 'Visi Harus diisi']
             ]
         ])) {
             session()->setFlashdata('gagal', 'Data gagal ditambahakan');

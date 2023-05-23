@@ -132,9 +132,9 @@
                 <div class="col-lg-12 d-flex justify-content-center">
                     <div class="footer-widget">
                         <h4 class="d-flex justify-content-center">Contact Us</h4>
-                        <p class="d-flex justify-content-center">Rio de Janeiro - RJ, 22795-008, Brazil</p>
-                        <p class="d-flex justify-content-center"><a href="#">010-020-0340</a></p>
-                        <p class="d-flex justify-content-center"><a href="#">info@company.co</a></p>
+                        <p class="d-flex justify-content-center"><?= $alamat; ?></p>
+                        <p class="d-flex justify-content-center"><?= $no_telpon; ?></p>
+                        <p class="d-flex justify-content-center"><?= $email; ?></p>
                     </div>
                 </div>
 

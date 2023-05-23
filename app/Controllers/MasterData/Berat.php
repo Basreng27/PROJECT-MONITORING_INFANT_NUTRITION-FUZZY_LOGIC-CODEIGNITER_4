@@ -20,13 +20,13 @@ class Berat extends BaseController
             'kategori_berat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Kategori Berat harus diisi'
                 ]
             ],
             'keterangan_berat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Keterangan Berat harus diisi'
                 ]
             ]
         ])) {
@@ -49,13 +49,13 @@ class Berat extends BaseController
             'kategori_berat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Kategori Berat harus diisi'
                 ]
             ],
             'keterangan_berat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Keterangan Berat harus diisi'
                 ]
             ]
         ])) {

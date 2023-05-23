@@ -84,6 +84,11 @@ $routes->get('/misi', 'VisiMisi\MisiController::index');
 $routes->post('/save-misi', 'VisiMisi\MisiController::store');
 $routes->delete('/delete-misi/(:num)', 'VisiMisi\MisiController::delete/$1');
 
+// setting
+// footer user
+$routes->get('/footer-user', 'Admin::footerUser');
+$routes->post('/proses-update-footer-user', 'Setting\FooterUser::prosesUpdateFooter');
+
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

@@ -210,19 +210,32 @@
                                         <span>Grafik Balita</span>
                                     </a>
                                 </li>
+
+
+                                <li class="nav-parent">
+                                    <a>
+                                        <i class="fa fa-gear" aria-hidden="true"></i>
+                                        <span>Setting</span>
+                                    </a>
+
+                                    <ul class="nav nav-children">
+                                        <li>
+                                            <a href="/footer-user">
+                                                Footer User
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
-
                 </div>
-
             </aside>
             <!-- end: sidebar -->
 
             <?= $this->renderSection('content_admin'); ?>
 
         </div>
-
     </section>
 
     <!-- Vendor -->

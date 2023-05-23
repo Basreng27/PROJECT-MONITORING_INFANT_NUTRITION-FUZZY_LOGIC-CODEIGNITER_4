@@ -20,13 +20,13 @@ class Tinggi extends BaseController
             'kategori_tinggi' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Kategori Tinggi harus diisi'
                 ]
             ],
             'keterangan_tinggi' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Keterangan Tinggi harus diisi'
                 ]
             ]
         ])) {
@@ -49,13 +49,13 @@ class Tinggi extends BaseController
             'kategori_tinggi' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Kategori Tinggi harus diisi'
                 ]
             ],
             'keterangan_tinggi' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Keterangan Tinggi harus diisi'
                 ]
             ]
         ])) {

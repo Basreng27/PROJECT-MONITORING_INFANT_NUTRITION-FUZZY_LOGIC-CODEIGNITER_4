@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\MasterPasien;
+namespace App\Controllers\Setting;
 
 use App\Controllers\BaseController;
 use App\Models\Ortu_model;
@@ -18,35 +18,36 @@ class Ortu extends BaseController
     {
         if (!$this->validate([
             'nik' => [
-                'rules' => 'required|numeric',
+                'rules' => 'required|numeric|is_unique[ortu.nik]',
                 'errors' => [
-                    'required' => '{field} harus diisi',
-                    'numeric' => '{field} harus berupa angka',
+                    'required' => 'NIK harus diisi',
+                    'numeric' => 'NIK harus berupa angka',
+                    'is_unique' => 'NIK tidak boleh sama',
                 ]
             ],
             'nama_ortu' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Nama Ortu harus diisi'
                 ]
             ],
             'alamat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Alamat harus diisi'
                 ]
             ],
             'pekerjaan' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Pekerjaan harus diisi'
                 ]
             ],
             'no_telpon' => [
                 'rules' => 'required|numeric',
                 'errors' => [
-                    'required' => '{field} harus diisi',
-                    'numeric' => '{field} harus berupa angka',
+                    'required' => 'No Telpon harus diisi',
+                    'numeric' => 'No Telpon harus berupa angka',
                 ]
             ]
         ])) {
@@ -73,33 +74,33 @@ class Ortu extends BaseController
             'nik' => [
                 'rules' => 'required|numeric',
                 'errors' => [
-                    'required' => '{field} harus diisi',
-                    'numeric' => '{field} harus berupa angka',
+                    'required' => 'NIK harus diisi',
+                    'numeric' => 'NIK harus berupa angka',
                 ]
             ],
             'nama_ortu' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Nama Ortu harus diisi'
                 ]
             ],
             'alamat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Alamat harus diisi'
                 ]
             ],
             'pekerjaan' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => 'Pekerjaan harus diisi'
                 ]
             ],
             'no_telpon' => [
                 'rules' => 'required|numeric',
                 'errors' => [
-                    'required' => '{field} harus diisi',
-                    'numeric' => '{field} harus diisi'
+                    'required' => 'No Telepon harus diisi',
+                    'numeric' => 'No Telepon harus diisi'
                 ]
             ]
         ])) {
