@@ -102,7 +102,8 @@ class Admin extends BaseController
         $data = [
             'validation' => \Config\Services::validation(),
             'data_balita' => $this->BalitaModel->balitaXortuXbalita(),
-            'data_ortu' => $this->OrtuModel->findAll()
+            'data_ayah' => $this->OrtuModel->ortuXjk(1),
+            'data_ibu' => $this->OrtuModel->ortuXjk(2)
         ];
 
         return view('Pages/Admin/Master-Data-Pasien/balita', $data);

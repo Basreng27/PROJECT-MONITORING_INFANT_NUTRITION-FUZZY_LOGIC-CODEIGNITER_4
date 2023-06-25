@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Setting;
+namespace App\Controllers\MasterPasien;
 
 use App\Controllers\BaseController;
 use App\Models\Ortu_model;

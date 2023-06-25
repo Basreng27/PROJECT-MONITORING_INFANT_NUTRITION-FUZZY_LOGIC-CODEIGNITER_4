@@ -23,12 +23,6 @@ class Balita extends BaseController
                     'required' => 'Nama Balita harus diisi'
                 ]
             ],
-            'id_ortu' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Orang Tua harus diisi'
-                ]
-            ]
         ])) {
             session()->setFlashdata('gagal', 'Data gagal ditambahkan');
             return redirect()->to('/balita')->withInput();
@@ -37,7 +31,14 @@ class Balita extends BaseController
         $this->BalitaModel->save([
             'nama_balita' => $this->request->getVar('nama_balita'),
             'id_jk_balita' => $this->request->getVar('id_jk_balita'),
-            'id_ortu' => $this->request->getVar('id_ortu')
+            'id_ortu' => $this->request->getVar('id_ortu_ayah'),
+            'id_ortu_ibu' => $this->request->getVar('id_ortu_ibu'),
+            'nik' => $this->request->getVar('nik'),
+            'anak_ke' => $this->request->getVar('anak_ke'),
+            'bb_lahir' => $this->request->getVar('bb_lahir'),
+            'lingkar_lengan' => $this->request->getVar('lingkar_lengan'),
+            'lingkar_kepala' => $this->request->getVar('lingkar_kepala'),
+            'dari_keluarga' => $this->request->getVar('dari_keluarga'),
         ]);
 
         session()->setFlashdata('berhasil', 'Data berhasil ditambahkan');
@@ -68,7 +69,14 @@ class Balita extends BaseController
             'id_balita' => $this->request->getVar('id_balita'),
             'nama_balita' => $this->request->getVar('nama_balita'),
             'id_jk_balita' => $this->request->getVar('id_jk_balita'),
-            'id_ortu' => $this->request->getVar('id_ortu')
+            'id_ortu' => $this->request->getVar('id_ortu_ayah'),
+            'id_ortu_ibu' => $this->request->getVar('id_ortu_ibu'),
+            'nik' => $this->request->getVar('nik'),
+            'anak_ke' => $this->request->getVar('anak_ke'),
+            'bb_lahir' => $this->request->getVar('bb_lahir'),
+            'lingkar_lengan' => $this->request->getVar('lingkar_lengan'),
+            'lingkar_kepala' => $this->request->getVar('lingkar_kepala'),
+            'dari_keluarga' => $this->request->getVar('dari_keluarga'),
         ]);
 
         session()->setFlashdata('berhasil', 'Data berhasil ditambahkan');

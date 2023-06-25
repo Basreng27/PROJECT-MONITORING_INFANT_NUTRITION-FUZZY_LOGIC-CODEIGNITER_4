@@ -28,7 +28,6 @@
         </div>
     <?php } ?>
 
-    <!-- start: page -->
     <section class="panel">
         <header class="panel-heading">
             <div class="panel-actions">
@@ -44,9 +43,15 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>NIK</th>
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
-                        <th>Orang Tua</th>
+                        <th>Anak Ke-</th>
+                        <th>Berat Badan Lahir</th>
+                        <th>Lingkar Lengan</th>
+                        <th>Lingkar Kepala</th>
+                        <th>Ayah</th>
+                        <th>Ibu</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -56,9 +61,15 @@
                     foreach ($data_balita as $balita) : ?>
                         <tr>
                             <td><?= $no++; ?></td>
+                            <td><?= $balita['nik']; ?></td>
                             <td><?= $balita['nama_balita']; ?></td>
                             <td><?= $balita['jk']; ?></td>
+                            <td><?= $balita['anak_ke']; ?></td>
+                            <td><?= $balita['bb_lahir']; ?></td>
+                            <td><?= $balita['lingkar_lengan']; ?></td>
+                            <td><?= $balita['lingkar_kepala']; ?></td>
                             <td><?= $balita['nama_ortu']; ?></td>
+                            <td><?= $balita['nama_ibu']; ?></td>
                             <td>
                                 <a href="#modalFormEdit<?= $balita['id_balita']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
                                 ||
@@ -70,7 +81,6 @@
             </table>
         </div>
     </section>
-    <!-- end: page -->
 </section>
 
 <div id="modalForm" class="modal-block modal-block-primary mfp-hide">
@@ -80,6 +90,14 @@
         </header>
         <form id="demo-form" action="/proses-add-balita" method="POST" class="form-horizontal mb-lg" novalidate="novalidate">
             <div class="panel-body">
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">NIK</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control <?= ($validation->hasError('nik')) ? 'is-invalid' : ''; ?>" value="<?= old('nik'); ?>" name="nik" placeholder="Masukan NIK" required />
+                        <div class="invalid-feedback"><?= $validation->getError('nik'); ?></div>
+                    </div>
+                </div>
+
                 <div class="form-group mt-lg">
                     <label class="col-sm-3 control-label">Nama</label>
                     <div class="col-sm-9">
@@ -92,24 +110,79 @@
                     <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
                     <div class="col-md-6">
                         <select class="form-control mb-md" name="id_jk_balita">
-                            <option value="1-Laki">Laki-Laki</option>
+                            <option value="1">Laki-Laki</option>
                             <option value="2">Perempuan</option>
                         </select>
                     </div>
                 </div>
 
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">Anak Ke-</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control <?= ($validation->hasError('anak_ke')) ? 'is-invalid' : ''; ?>" value="<?= old('anak_ke'); ?>" name="anak_ke" placeholder="Masukan Anak ke" required />
+                        <div class="invalid-feedback"><?= $validation->getError('anak_ke'); ?></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">Berat Badan Lahir</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control <?= ($validation->hasError('bb_lahir')) ? 'is-invalid' : ''; ?>" value="<?= old('bb_lahir'); ?>" name="bb_lahir" placeholder="Masukan Berat Badan Lahir" required />
+                        <div class="invalid-feedback"><?= $validation->getError('bb_lahir'); ?></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">Lingkar Lengan Atas</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control <?= ($validation->hasError('lingkar_lengan')) ? 'is-invalid' : ''; ?>" value="<?= old('lingkar_lengan'); ?>" name="lingkar_lengan" placeholder="Masukan Lingkar Lengan" required />
+                        <div class="invalid-feedback"><?= $validation->getError('lingkar_lengan'); ?></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">Lingkar Kepala</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control <?= ($validation->hasError('lingkar_kepala')) ? 'is-invalid' : ''; ?>" value="<?= old('lingkar_kepala'); ?>" name="lingkar_kepala" placeholder="Masukan Lingkar Kepala" required />
+                        <div class="invalid-feedback"><?= $validation->getError('lingkar_kepala'); ?></div>
+                    </div>
+                </div>
+
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Orang Tua</label>
+                    <label class="col-md-3 control-label">Nama Ayah</label>
                     <div class="col-md-6">
-                        <select name="id_ortu" class="form-control">
-                            <option value="">===== Pilih Orang Tua =====</option>
-                            <?php foreach ($data_ortu as $ortu) : ?>
+                        <select name="id_ortu_ayah" class="form-control">
+                            <option value="">===== Pilih Ayah =====</option>
+                            <?php foreach ($data_ayah as $ortu) : ?>
                                 <option value="<?= $ortu['id_ortu']; ?>"><?= $ortu['nama_ortu']; ?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Nama Ibu</label>
+                    <div class="col-md-6">
+                        <select name="id_ortu_ibu" class="form-control">
+                            <option value="">===== Pilih Ibu =====</option>
+                            <?php foreach ($data_ibu as $ortu) : ?>
+                                <option value="<?= $ortu['id_ortu']; ?>"><?= $ortu['nama_ortu']; ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="inputSuccess">Dari keluarga</label>
+                    <div class="col-md-6">
+                        <select class="form-control mb-md" name="dari_keluarga">
+                            <option value="MAMPU">Mampu</option>
+                            <option value="TIDAK MAMPU">Tidak Mampu</option>
+                        </select>
+                    </div>
+                </div>
             </div>
+
             <footer class="panel-footer">
                 <div class="row">
                     <div class="col-md-12 text-right">
@@ -133,9 +206,17 @@
                     <input type="hidden" name="id_balita" value="<?= $balitas['id_balita']; ?>">
 
                     <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">NIK</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control <?= ($validation->hasError('nik')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['nik'] ?? null; ?>" name="nik" required />
+                            <div class="invalid-feedback"><?= $validation->getError('nik'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
                         <label class="col-sm-3 control-label">Nama</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control <?= ($validation->hasError('nama_balita')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['nama_balita']; ?>" name="nama_balita" placeholder="Masukan Nama" required />
+                            <input type="text" class="form-control <?= ($validation->hasError('nama_balita')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['nama_balita'] ?? null; ?>" name="nama_balita" required />
                             <div class="invalid-feedback"><?= $validation->getError('nama_balita'); ?></div>
                         </div>
                     </div>
@@ -144,23 +225,75 @@
                         <label class="col-md-3 control-label" for="inputSuccess">Jenis Kelamin</label>
                         <div class="col-md-6">
                             <select class="form-control mb-md" name="id_jk_balita">
-                                <option value="<?= $balitas['id_jk_balita']; ?>"><?= $balitas['jk']; ?></option>
-                                <option value="1">Laki-Laki</option>
-                                <option value="2">Perempuan</option>
+                                <option value="1" <?= $balitas['id_jk_balita'] == 1 ? 'selected' : null; ?>>Laki-Laki</option>
+                                <option value="2" <?= $balitas['id_jk_balita'] == 2 ? 'selected' : null; ?>>Perempuan</option>
                             </select>
                         </div>
                     </div>
 
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">Anak Ke</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control <?= ($validation->hasError('anak_ke')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['anak_ke'] ?? null; ?>" name="anak_ke" required />
+                            <div class="invalid-feedback"><?= $validation->getError('anak_ke'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">Berat Badan Lahir</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control <?= ($validation->hasError('bb_lahir')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['bb_lahir'] ?? null; ?>" name="bb_lahir" required />
+                            <div class="invalid-feedback"><?= $validation->getError('bb_lahir'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">Lingkar Lengan Atas</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control <?= ($validation->hasError('lingkar_lengan')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['lingkar_lengan'] ?? null; ?>" name="lingkar_lengan" required />
+                            <div class="invalid-feedback"><?= $validation->getError('lingkar_lengan'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-lg">
+                        <label class="col-sm-3 control-label">Lingkar Kepala</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control <?= ($validation->hasError('lingkar_kepala')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['lingkar_kepala'] ?? null; ?>" name="lingkar_kepala" required />
+                            <div class="invalid-feedback"><?= $validation->getError('lingkar_kepala'); ?></div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Orang Tua</label>
+                        <label class="col-md-3 control-label">Nama Ayah</label>
                         <div class="col-md-6">
-                            <select name="id_ortu" class="form-control">
-                                <option value="<?= $balitas['id_ortu']; ?>"><?= $balitas['nama_ortu']; ?></option>
-                                <?php foreach ($data_ortu as $ortu) : ?>
-                                    <option value="<?= $ortu['id_ortu']; ?>"><?= $ortu['nama_ortu']; ?></option>
+                            <select name="id_ortu_ayah" class="form-control">
+                                <?php foreach ($data_ayah as $ortu) : ?>
+                                    <option value="<?= $ortu['id_ortu']; ?>" <?= $balitas['id_ortu'] == $ortu['id_ortu'] ? 'selected' : null; ?>><?= $ortu['nama_ortu']; ?></option>
                                 <?php endforeach ?>
                             </select>
                             <div class="invalid-feedback"><?= $validation->getError('id_ortu'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Nama Ibu</label>
+                        <div class="col-md-6">
+                            <select name="id_ortu_ibu" class="form-control">
+                                <?php foreach ($data_ibu as $ortu) : ?>
+                                    <option value="<?= $ortu['id_ortu']; ?>" <?= $balitas['id_ortu'] == $ortu['id_ortu'] ? 'selected' : null; ?>><?= $ortu['nama_ortu']; ?></option>
+                                <?php endforeach ?>
+                            </select>
+                            <div class="invalid-feedback"><?= $validation->getError('id_ortu'); ?></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="inputSuccess">Dari Keluarga</label>
+                        <div class="col-md-6">
+                            <select class="form-control mb-md" name="dari_keluarga">
+                                <option value="MAMPU" <?= $balitas['dari_keluarga'] == 'MAMPU' ? 'selected' : null; ?>>Mampu</option>
+                                <option value="TIDAK MAMPU" <?= $balitas['dari_keluarga'] == 'TIDAK MAMPU' ? 'selected' : null; ?>>Tidak Mampu</option>
+                            </select>
                         </div>
                     </div>
                 </div>

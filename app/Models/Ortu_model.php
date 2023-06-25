@@ -11,8 +11,15 @@ class Ortu_model extends Model
     protected $useTimestamps = false;
     protected $allowedFields = ['nama_ortu', 'id_jk_ortu', 'alamat', 'pekerjaan', 'no_telpon', 'nik'];
 
-    public function ortuXjk()
+    public function ortuXjk($jk = null)
     {
-        return $this->join('jk', 'jk.id_jk = ortu.id_jk_ortu')->findAll();
+        $this->join('jk', 'jk.id_jk = ortu.id_jk_ortu');
+
+        if ($jk)
+            $this->where('ortu.id_jk_ortu', $jk);
+
+        $query = $this->findAll();
+
+        return $query;
     }
 }
