@@ -48,8 +48,6 @@
                         <th>Jenis Kelamin</th>
                         <th>Anak Ke-</th>
                         <th>Berat Badan Lahir</th>
-                        <th>Lingkar Lengan</th>
-                        <th>Lingkar Kepala</th>
                         <th>Ayah</th>
                         <th>Ibu</th>
                         <th>Action</th>
@@ -67,8 +65,6 @@
                             <td><?= $balita['jk']; ?></td>
                             <td><?= $balita['anak_ke']; ?></td>
                             <td><?= $balita['bb_lahir']; ?></td>
-                            <td><?= $balita['lingkar_lengan']; ?></td>
-                            <td><?= $balita['lingkar_kepala']; ?></td>
                             <td><?= $balita['nama_ortu']; ?></td>
                             <td><?= $balita['nama_ibu']; ?></td>
                             <td>
@@ -133,22 +129,6 @@
                     </div>
                 </div>
 
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Lingkar Lengan Atas</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control <?= ($validation->hasError('lingkar_lengan')) ? 'is-invalid' : ''; ?>" value="<?= old('lingkar_lengan'); ?>" name="lingkar_lengan" placeholder="Masukan Lingkar Lengan" required />
-                        <div class="invalid-feedback"><?= $validation->getError('lingkar_lengan'); ?></div>
-                    </div>
-                </div>
-
-                <div class="form-group mt-lg">
-                    <label class="col-sm-3 control-label">Lingkar Kepala</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control <?= ($validation->hasError('lingkar_kepala')) ? 'is-invalid' : ''; ?>" value="<?= old('lingkar_kepala'); ?>" name="lingkar_kepala" placeholder="Masukan Lingkar Kepala" required />
-                        <div class="invalid-feedback"><?= $validation->getError('lingkar_kepala'); ?></div>
-                    </div>
-                </div>
-
                 <div class="form-group">
                     <label class="col-md-3 control-label">Nama Ayah</label>
                     <div class="col-md-6">
@@ -174,11 +154,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputSuccess">Dari keluarga</label>
+                    <label class="col-md-3 control-label" for="inputSuccess">Dari Keluarga</label>
                     <div class="col-md-6">
                         <select class="form-control mb-md" name="dari_keluarga">
-                            <option value="MAMPU">Mampu</option>
-                            <option value="TIDAK MAMPU">Tidak Mampu</option>
+                            <option value="">===== Pilih Ibu =====</option>
+                            <option value="N">N</option>
+                            <option value="G">G</option>
                         </select>
                     </div>
                 </div>
@@ -248,22 +229,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group mt-lg">
-                        <label class="col-sm-3 control-label">Lingkar Lengan Atas</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control <?= ($validation->hasError('lingkar_lengan')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['lingkar_lengan'] ?? null; ?>" name="lingkar_lengan" required />
-                            <div class="invalid-feedback"><?= $validation->getError('lingkar_lengan'); ?></div>
-                        </div>
-                    </div>
-
-                    <div class="form-group mt-lg">
-                        <label class="col-sm-3 control-label">Lingkar Kepala</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control <?= ($validation->hasError('lingkar_kepala')) ? 'is-invalid' : ''; ?>" value="<?= $balitas['lingkar_kepala'] ?? null; ?>" name="lingkar_kepala" required />
-                            <div class="invalid-feedback"><?= $validation->getError('lingkar_kepala'); ?></div>
-                        </div>
-                    </div>
-
                     <div class="form-group">
                         <label class="col-md-3 control-label">Nama Ayah</label>
                         <div class="col-md-6">
@@ -292,8 +257,8 @@
                         <label class="col-md-3 control-label" for="inputSuccess">Dari Keluarga</label>
                         <div class="col-md-6">
                             <select class="form-control mb-md" name="dari_keluarga">
-                                <option value="MAMPU" <?= $balitas['dari_keluarga'] == 'MAMPU' ? 'selected' : null; ?>>Mampu</option>
-                                <option value="TIDAK MAMPU" <?= $balitas['dari_keluarga'] == 'TIDAK MAMPU' ? 'selected' : null; ?>>Tidak Mampu</option>
+                                <option value="N" <?= $balitas['dari_keluarga'] == 'N' ? 'selected' : null; ?>>N</option>
+                                <option value="G" <?= $balitas['dari_keluarga'] == 'G' ? 'selected' : null; ?>>G</option>
                             </select>
                         </div>
                     </div>
