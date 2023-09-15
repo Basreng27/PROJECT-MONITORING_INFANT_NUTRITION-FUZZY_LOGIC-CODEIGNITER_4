@@ -65,8 +65,8 @@
                             <td><?= $balita['jk']; ?></td>
                             <td><?= $balita['anak_ke']; ?></td>
                             <td><?= $balita['bb_lahir']; ?></td>
-                            <td><?= $balita['nama_ortu']; ?></td>
-                            <td><?= $balita['nama_ibu']; ?></td>
+                            <td><?= $balita['bapak']; ?></td>
+                            <td><?= $balita['ibu']; ?></td>
                             <td>
                                 <a href="#modalFormEdit<?= $balita['id_balita']; ?>" class="modal-with-form on-default edit-row"><i class="fa fa-pencil"></i></a>
                                 ||

@@ -83,6 +83,8 @@ $routes->delete('/delete-visi/(:num)', 'VisiMisi\VisiController::delete/$1');
 $routes->get('/misi', 'VisiMisi\MisiController::index');
 $routes->post('/save-misi', 'VisiMisi\MisiController::store');
 $routes->delete('/delete-misi/(:num)', 'VisiMisi\MisiController::delete/$1');
+// data
+$routes->get('/all-data', 'Data::allData');
 
 // setting
 // footer user

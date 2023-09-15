@@ -82,4 +82,16 @@ class Data extends BaseController
         session()->setFlashdata('berhasil-delete', 'Data berhasil delete');
         return redirect()->to('/data');
     }
+
+    public function allData()
+    {
+        if (session()->get('stat') != 'login-monitoring')
+            return redirect('/');
+
+        $data = [
+            'data' => $this->BalitaModel->getAllData(),
+        ];
+
+        return view('Pages/admin/all_data', $data);
+    }
 }

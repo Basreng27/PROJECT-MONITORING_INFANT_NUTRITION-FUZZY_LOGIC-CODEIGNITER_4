@@ -118,9 +118,9 @@
                                 </li>
 
                                 <li class="nav">
-                                    <a href="/data">
-                                        <i class="fa fa-copy" aria-hidden="true"></i>
-                                        <span>Data Antropometri Balita</span>
+                                    <a href="/all-data">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                        <span>Data</span>
                                     </a>
                                 </li>
 
@@ -173,6 +173,13 @@
                                             </ul>
                                         </li>
                                     </ul>
+                                </li>
+
+                                <li class="nav">
+                                    <a href="/data">
+                                        <i class="fa fa-copy" aria-hidden="true"></i>
+                                        <span>Data Antropometri Balita</span>
+                                    </a>
                                 </li>
 
                                 <!-- <li class="nav-parent">
